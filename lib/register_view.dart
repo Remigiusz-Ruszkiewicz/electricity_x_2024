@@ -49,25 +49,6 @@ class _RegisterViewState extends State<RegisterView> {
                         child: const Image(image: AssetImage('assets/images/ratmon_icon.png')),
                       ),
                     ),
-                    SizedBox(
-                      height: 48,
-                      width: 48,
-                      child: Card(
-                        semanticContainer: true,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        elevation: 5,
-                        color: Colors.blue,
-                        child: IconButton(
-                          alignment: Alignment.center,
-                          onPressed: () => {},
-                          color: Colors.white,
-                          icon: const Icon(Icons.settings),
-                        ),
-                      ),
-                    ),
                   ],
                 ),
                 const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),

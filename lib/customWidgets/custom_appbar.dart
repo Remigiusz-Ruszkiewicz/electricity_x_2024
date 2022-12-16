@@ -1,3 +1,4 @@
+import 'package:electricity_x_2024/login_view.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -16,8 +17,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
               colors: [
+                Color.fromRGBO(9, 153, 21, 1),
                 Color.fromRGBO(63, 62, 62, 1),
-                Color.fromRGBO(40, 40, 40, 1),
               ],
               begin: FractionalOffset(0.0, 0.0),
               end: FractionalOffset(0.0, 1.0),
@@ -28,7 +29,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: 70,
       title: Text(
         title,
-        style: const TextStyle(fontSize: 16, color: Color.fromRGBO(186, 186, 186, 1)),
+        style: const TextStyle(fontSize: 20, color: Colors.white),
       ),
       titleSpacing: 0,
       leadingWidth: 70,
@@ -44,33 +45,25 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               borderRadius: BorderRadius.circular(8.0),
             ),
             elevation: 5,
-            color: Colors.white,
-            child: const Image(image: AssetImage('assets/images/app_icon.png')),
+            color: Colors.transparent,
+            child:
+                const Image(image: AssetImage('assets/images/app_icon.png')),
           ),
         ),
       ),
       actions: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SizedBox(
-            height: 48,
-            width: 55,
-            child: Card(
-              semanticContainer: true,
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4.0),
+        IconButton(
+          alignment: Alignment.center,
+          onPressed: () => {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const LoginView(),
               ),
-              elevation: 5,
-              color: Colors.blue,
-              child: IconButton(
-                alignment: Alignment.center,
-                color: Colors.blueAccent,
-                onPressed: () => {},
-                icon: const Icon(Icons.settings),
-              ),
-            ),
-          ),
+            )
+          },
+          color: Colors.white,
+          icon: const Icon(Icons.logout),
         ),
       ],
     );

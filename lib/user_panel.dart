@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'base/page_widget.dart';
+import 'generated/locale_keys.g.dart';
 
 class UserPanel extends StatelessWidget {
   const UserPanel({Key? key}) : super(key: key);
@@ -8,7 +10,7 @@ class UserPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageWidget(
-      title: 'User',
+      title: LocaleKeys.userPanel.tr(),
       topWidget: Container(
         color: Colors.amber,
         width: 300,

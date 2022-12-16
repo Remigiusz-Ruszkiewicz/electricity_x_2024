@@ -49,9 +49,7 @@ class _LoginViewState extends State<LoginView> {
                           elevation: 5,
                           color: Colors.grey,
                           margin: const EdgeInsets.all(10),
-                          child: const Image(
-                              image:
-                                  AssetImage('assets/images/ratmon_icon.png')),
+                          child: const Image(image: AssetImage('assets/images/ratmon_icon.png')),
                         ),
                       ),
                     ],
@@ -66,8 +64,7 @@ class _LoginViewState extends State<LoginView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(
-                            left: 15.0, right: 15.0, top: 30, bottom: 15),
+                        padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 30, bottom: 15),
                         child: Text(
                           LocaleKeys.Email.tr(),
                           style: const TextStyle(
@@ -82,22 +79,20 @@ class _LoginViewState extends State<LoginView> {
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
                       decoration: const InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 2,
-                            color: Color.fromRGBO(54, 53, 53, 1),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(54, 53, 53, 1),
+                            ),
                           ),
-                        ),
-                        constraints: BoxConstraints(maxWidth: 400)
-                      ),
+                          constraints: BoxConstraints(maxWidth: 400)),
                     ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(
-                            left: 15.0, right: 15.0, top: 15, bottom: 0),
+                        padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                         child: Text(
                           LocaleKeys.Password.tr(),
                           style: const TextStyle(
@@ -109,8 +104,7 @@ class _LoginViewState extends State<LoginView> {
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(
-                        left: 15.0, right: 15.0, top: 15, bottom: 15),
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
                     child: TextFormField(
                       obscureText: !_passwordVisible,
                       enableSuggestions: false,
@@ -123,7 +117,7 @@ class _LoginViewState extends State<LoginView> {
                             color: Color.fromRGBO(54, 53, 53, 1),
                           ),
                         ),
-                          constraints: BoxConstraints(maxWidth: 400),
+                        constraints: BoxConstraints(maxWidth: 400),
                         suffixIcon: IconButton(
                           onPressed: () => {
                             setState(
@@ -154,8 +148,7 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       child: Text(
                         LocaleKeys.Login.tr(),
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 16),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
                   ),
@@ -164,23 +157,17 @@ class _LoginViewState extends State<LoginView> {
                     height: 50,
                     width: 250,
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 2,
-                          color: const Color.fromRGBO(117, 117, 117, 1)),
+                      border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: MaterialButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const RegisterView()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const RegisterView()));
                       },
                       child: Text(
                         LocaleKeys.Register.tr(),
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 16),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
                   ),

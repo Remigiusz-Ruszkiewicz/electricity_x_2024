@@ -209,5 +209,9 @@
   "UserSettings": "Ustawienia Użytkownika",
   "About": "About",
   "Logout": "Wyloguj",
-  "BackToLogin": "Wróć do ekranu logowania"
+  "BackToLogin": "Wróć do ekranu logowania",
+  "mainMenu": "Menu główne",
+  "giver": "Dawca",
+  "taker": "Biorca",
+  "userPanel": "Profil"
 }

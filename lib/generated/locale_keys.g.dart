@@ -212,5 +212,9 @@ abstract class  LocaleKeys {
   static const About = 'About';
   static const Logout = 'Logout';
   static const BackToLogin = 'BackToLogin';
+  static const mainMenu = 'mainMenu';
+  static const giver = 'giver';
+  static const taker = 'taker';
+  static const userPanel = 'userPanel';
 
 }

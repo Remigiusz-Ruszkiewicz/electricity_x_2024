@@ -1,59 +1,44 @@
-import 'package:electricity_x_2024/login_view.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+//import 'package:samalert/API_bloc.dart';
+import 'package:electricity_x_2024/login_view.dart';
+import 'package:electricity_x_2024/src/resources/themes/dark/dark_theme.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:async_builder/async_builder.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(
+    EasyLocalization(
+      saveLocale: true,
+      supportedLocales: const [
+        Locale('en', 'US'),
+        Locale('pl', 'PL'),
+      ],
+      path: 'assets/languages',
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'ElectricityX2024',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'ElectricityX2024'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      print(message.messageId);
     });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: SizedBox(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: ()=>{                        Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-      builder: (_) => const LoginView()))},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+    return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      theme: darkTheme,
+      debugShowCheckedModeBanner: false,
+      home: const LoginView(),
     );
   }
 }

@@ -1,5 +1,11 @@
-import 'package:electricity_x_2024/register_view.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:electricity_x_2024/generated/locale_keys.g.dart';
+import 'package:electricity_x_2024/register_view.dart';
+//import 'package:electricity_x_2024/views/groups_view.dart';
+
+//import 'package:electricity_x_2024/views/settings_view.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -62,27 +68,30 @@ class _LoginViewState extends State<LoginView> {
                           color: Colors.blue,
                           child: IconButton(
                             alignment: Alignment.center,
+                            style: IconButton.styleFrom(backgroundColor: Colors.blueAccent),
+                            onPressed: () => {
+                              //Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsView())),
+                            },
                             color: Colors.white,
                             icon: const Icon(Icons.settings),
-                            onPressed: () {},
                           ),
                         ),
                       ),
                     ],
                   ),
                   const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-                  const Text(
-                    'Zaloguj się \n do aplikacji RATMON',
-                    style: TextStyle(color: Colors.white, fontSize: 30),
+                  Text(
+                    LocaleKeys.LoginTitle.tr(),
+                    style: const TextStyle(color: Colors.white, fontSize: 30),
                     textAlign: TextAlign.center,
                   ),
                   Row(
-                    children: const [
+                    children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 30, bottom: 15),
+                        padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 30, bottom: 15),
                         child: Text(
-                          'E-Mail',
-                          style: TextStyle(
+                          LocaleKeys.Email.tr(),
+                          style: const TextStyle(
                             color: Color.fromRGBO(186, 186, 186, 1),
                             fontSize: 13,
                           ),
@@ -112,12 +121,12 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
                   Row(
-                    children: const [
+                    children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
+                        padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                         child: Text(
-                          'Hasło',
-                          style: TextStyle(
+                          LocaleKeys.Password.tr(),
+                          style: const TextStyle(
                             color: Color.fromRGBO(186, 186, 186, 1),
                             fontSize: 13,
                           ),
@@ -151,7 +160,7 @@ class _LoginViewState extends State<LoginView> {
                         suffixIcon: IconButton(
                           onPressed: () => {
                             setState(
-                              () {
+                                  () {
                                 _passwordVisible = !_passwordVisible;
                               },
                             ),
@@ -170,10 +179,47 @@ class _LoginViewState extends State<LoginView> {
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: MaterialButton(
-                      onPressed: () async {},
-                      child: const Text(
-                        'Zaloguj się do aplikacji',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate()) {
+                          if (await InternetConnectionChecker().hasConnection) {
+                            if (true
+                            //await apiBloc.login('serwis@ratmon.com', 'Password1!'
+                              //loginTextEditingController.value.text,
+                              //passwordTextEditingController.value.text,
+                            //)
+                              ) {
+                              //Navigator.pushReplacement(
+                               // context,
+                                //MaterialPageRoute(
+                                //  builder: (_) => const GroupsView(),
+                               // ),
+                             // );
+                            }
+                          } else {
+                            showDialog(
+                              context: context,
+                              builder: (_) => AlertDialog(
+                                title: const Text('Połączenie Internetowe'),
+                                content: const Text('Proszę włączyć połączenie internetowe.'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text(
+                                      'Ok',
+                                      style: TextStyle(fontSize: 20, color: Colors.white),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
+                        }
+                      },
+                      child: Text(
+                        LocaleKeys.Login.tr(),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
                   ),
@@ -190,9 +236,9 @@ class _LoginViewState extends State<LoginView> {
                       onPressed: () {
                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const RegisterView()));
                       },
-                      child: const Text(
-                        'Zarejestruj konto',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      child: Text(
+                        LocaleKeys.Register.tr(),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
                   ),
@@ -205,18 +251,18 @@ class _LoginViewState extends State<LoginView> {
                     color: Color.fromRGBO(95, 94, 94, 1),
                   ),
                   const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-                  const Text(
-                    'Przypomnij Hasło',
-                    style: TextStyle(
+                  Text(
+                    LocaleKeys.RecoverPassword.tr(),
+                    style: const TextStyle(
                       color: Color.fromRGBO(186, 186, 186, 1),
                       fontSize: 16,
                       decoration: TextDecoration.underline,
                     ),
                   ),
                   const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-                  const Text(
-                    'Polityka prywatności',
-                    style: TextStyle(
+                  Text(
+                    LocaleKeys.PrivacyPolicy.tr(),
+                    style: const TextStyle(
                       color: Color.fromRGBO(186, 186, 186, 1),
                       fontSize: 16,
                       decoration: TextDecoration.underline,

@@ -1,5 +1,8 @@
-import 'package:electricity_x_2024/login_view.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:electricity_x_2024/generated/locale_keys.g.dart';
+import 'package:electricity_x_2024/login_view.dart';
+//import 'package:samalert/views/settings_view.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
@@ -59,27 +62,30 @@ class _RegisterViewState extends State<RegisterView> {
                         color: Colors.blue,
                         child: IconButton(
                           alignment: Alignment.center,
+                          style: IconButton.styleFrom(backgroundColor: Colors.blueAccent),
+                          onPressed: () => {
+                            //Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsView())),
+                          },
                           color: Colors.white,
                           icon: const Icon(Icons.settings),
-                          onPressed: () {},
                         ),
                       ),
                     ),
                   ],
                 ),
                 const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-                const Text(
-                  'Zarejestruj konto \n w aplikacji RATMON',
-                  style: TextStyle(color: Colors.white, fontSize: 30),
+                Text(
+                  LocaleKeys.RegisterTitle.tr(),
+                  style: const TextStyle(color: Colors.white, fontSize: 30),
                   textAlign: TextAlign.center,
                 ),
                 Row(
-                  children: const [
+                  children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 30, bottom: 15),
+                      padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 30, bottom: 15),
                       child: Text(
-                        'Podaj E-Mail',
-                        style: TextStyle(
+                        LocaleKeys.Email.tr(),
+                        style: const TextStyle(
                           color: Color.fromRGBO(186, 186, 186, 1),
                           fontSize: 13,
                         ),
@@ -102,12 +108,12 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                 ),
                 Row(
-                  children: const [
+                  children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
+                      padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                       child: Text(
-                        'Podaj hasło',
-                        style: TextStyle(
+                        LocaleKeys.Password.tr(),
+                        style: const TextStyle(
                           color: Color.fromRGBO(186, 186, 186, 1),
                           fontSize: 13,
                         ),
@@ -134,7 +140,7 @@ class _RegisterViewState extends State<RegisterView> {
                       suffixIcon: IconButton(
                         onPressed: () => {
                           setState(
-                            () {
+                                () {
                               _passwordVisible = !_passwordVisible;
                             },
                           ),
@@ -146,12 +152,12 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                 ),
                 Row(
-                  children: const [
+                  children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
+                      padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                       child: Text(
-                        'Potwierdź hasło',
-                        style: TextStyle(
+                        LocaleKeys.ConfirmPassword.tr(),
+                        style: const TextStyle(
                           color: Color.fromRGBO(186, 186, 186, 1),
                           fontSize: 13,
                         ),
@@ -178,7 +184,7 @@ class _RegisterViewState extends State<RegisterView> {
                       suffixIcon: IconButton(
                         onPressed: () => {
                           setState(
-                            () {
+                                () {
                               _passwordVisible = !_passwordVisible;
                             },
                           ),
@@ -199,9 +205,9 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    child: const Text(
-                      'Zarejestruj konto',
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    child: Text(
+                      LocaleKeys.Register.tr(),
+                      style: const TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ),
                 ),
@@ -218,9 +224,9 @@ class _RegisterViewState extends State<RegisterView> {
                     onPressed: () {
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginView()));
                     },
-                    child: const Text(
-                      'Wróć do ekranu logowania',
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    child: Text(
+                      LocaleKeys.BackToLogin.tr(),
+                      style: const TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ),
                 ),

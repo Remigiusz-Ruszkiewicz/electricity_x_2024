@@ -222,6 +222,7 @@ fabric.properties
 /pubspec.lock~origin_master
 /android/.idea/workspace.xml
 /ios/Podfile.lock
+/pubspec.lock
 
 # Linux related
 **/linux/flutter/generated_plugin_registrant.cc

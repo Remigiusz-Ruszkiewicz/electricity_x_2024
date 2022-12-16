@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:electricity_x_2024/register_view.dart';
 import 'package:flutter/material.dart';
 
@@ -48,9 +46,7 @@ class _LoginViewState extends State<LoginView> {
                           elevation: 5,
                           color: Colors.white,
                           margin: const EdgeInsets.all(10),
-                          child: const Image(
-                              image:
-                              AssetImage('assets/images/ratmon_icon.png')),
+                          child: const Image(image: AssetImage('assets/images/ratmon_icon.png')),
                         ),
                       ),
                       SizedBox(
@@ -66,16 +62,9 @@ class _LoginViewState extends State<LoginView> {
                           color: Colors.blue,
                           child: IconButton(
                             alignment: Alignment.center,
-                            style: IconButton.styleFrom(
-                                backgroundColor: Colors.blueAccent),
-                            onPressed: () => {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (_) => const SettingsView())),
-                            },
                             color: Colors.white,
                             icon: const Icon(Icons.settings),
+                            onPressed: () {},
                           ),
                         ),
                       ),
@@ -90,8 +79,7 @@ class _LoginViewState extends State<LoginView> {
                   Row(
                     children: const [
                       Padding(
-                        padding: EdgeInsets.only(
-                            left: 15.0, right: 15.0, top: 30, bottom: 15),
+                        padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 30, bottom: 15),
                         child: Text(
                           'E-Mail',
                           style: TextStyle(
@@ -126,8 +114,7 @@ class _LoginViewState extends State<LoginView> {
                   Row(
                     children: const [
                       Padding(
-                        padding: EdgeInsets.only(
-                            left: 15.0, right: 15.0, top: 15, bottom: 0),
+                        padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                         child: Text(
                           'Hasło',
                           style: TextStyle(
@@ -139,8 +126,7 @@ class _LoginViewState extends State<LoginView> {
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(
-                        left: 15.0, right: 15.0, top: 15, bottom: 15),
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
                     //padding: EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -165,7 +151,7 @@ class _LoginViewState extends State<LoginView> {
                         suffixIcon: IconButton(
                           onPressed: () => {
                             setState(
-                                  () {
+                              () {
                                 _passwordVisible = !_passwordVisible;
                               },
                             ),
@@ -184,9 +170,7 @@ class _LoginViewState extends State<LoginView> {
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: MaterialButton(
-                      onPressed: () async {
-
-                      },
+                      onPressed: () async {},
                       child: const Text(
                         'Zaloguj się do aplikacji',
                         style: TextStyle(color: Colors.white, fontSize: 16),
@@ -198,18 +182,13 @@ class _LoginViewState extends State<LoginView> {
                     height: 50,
                     width: 250,
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 2,
-                          color: const Color.fromRGBO(117, 117, 117, 1)),
+                      border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: MaterialButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const RegisterView()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const RegisterView()));
                       },
                       child: const Text(
                         'Zarejestruj konto',

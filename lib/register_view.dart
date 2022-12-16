@@ -43,8 +43,7 @@ class _RegisterViewState extends State<RegisterView> {
                         elevation: 5,
                         color: Colors.white,
                         margin: const EdgeInsets.all(10),
-                        child: const Image(
-                            image: AssetImage('assets/images/ratmon_icon.png')),
+                        child: const Image(image: AssetImage('assets/images/ratmon_icon.png')),
                       ),
                     ),
                     SizedBox(
@@ -60,16 +59,9 @@ class _RegisterViewState extends State<RegisterView> {
                         color: Colors.blue,
                         child: IconButton(
                           alignment: Alignment.center,
-                          style: IconButton.styleFrom(
-                              backgroundColor: Colors.blueAccent),
-                          onPressed: () => {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (_) => const SettingsView())),
-                          },
                           color: Colors.white,
                           icon: const Icon(Icons.settings),
+                          onPressed: () {},
                         ),
                       ),
                     ),
@@ -84,8 +76,7 @@ class _RegisterViewState extends State<RegisterView> {
                 Row(
                   children: const [
                     Padding(
-                      padding: EdgeInsets.only(
-                          left: 15.0, right: 15.0, top: 30, bottom: 15),
+                      padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 30, bottom: 15),
                       child: Text(
                         'Podaj E-Mail',
                         style: TextStyle(
@@ -113,8 +104,7 @@ class _RegisterViewState extends State<RegisterView> {
                 Row(
                   children: const [
                     Padding(
-                      padding: EdgeInsets.only(
-                          left: 15.0, right: 15.0, top: 15, bottom: 0),
+                      padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                       child: Text(
                         'Podaj hasło',
                         style: TextStyle(
@@ -126,8 +116,7 @@ class _RegisterViewState extends State<RegisterView> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                      left: 15.0, right: 15.0, top: 15, bottom: 0),
+                  padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                   //padding: EdgeInsets.symmetric(horizontal: 15),
                   child: TextField(
                     controller: passwordTextEditingController,
@@ -145,7 +134,7 @@ class _RegisterViewState extends State<RegisterView> {
                       suffixIcon: IconButton(
                         onPressed: () => {
                           setState(
-                                () {
+                            () {
                               _passwordVisible = !_passwordVisible;
                             },
                           ),
@@ -159,8 +148,7 @@ class _RegisterViewState extends State<RegisterView> {
                 Row(
                   children: const [
                     Padding(
-                      padding: EdgeInsets.only(
-                          left: 15.0, right: 15.0, top: 15, bottom: 0),
+                      padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                       child: Text(
                         'Potwierdź hasło',
                         style: TextStyle(
@@ -172,8 +160,7 @@ class _RegisterViewState extends State<RegisterView> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                      left: 15.0, right: 15.0, top: 15, bottom: 0),
+                  padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                   //padding: EdgeInsets.symmetric(horizontal: 15),
                   child: TextField(
                     controller: passwordTextEditingController,
@@ -191,7 +178,7 @@ class _RegisterViewState extends State<RegisterView> {
                       suffixIcon: IconButton(
                         onPressed: () => {
                           setState(
-                                () {
+                            () {
                               _passwordVisible = !_passwordVisible;
                             },
                           ),
@@ -223,17 +210,13 @@ class _RegisterViewState extends State<RegisterView> {
                   height: 50,
                   width: 250,
                   decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
+                    border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: MaterialButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const LoginView()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginView()));
                     },
                     child: const Text(
                       'Wróć do ekranu logowania',

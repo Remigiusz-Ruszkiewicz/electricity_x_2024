@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:electricity_x_2024/generated/locale_keys.g.dart';
+import 'package:electricity_x_2024/main_menu_view.dart';
 import 'package:electricity_x_2024/register_view.dart';
 import 'package:flutter/material.dart';
 //import 'package:electricity_x_2024/views/groups_view.dart';
@@ -67,7 +68,10 @@ class _LoginViewState extends State<LoginView> {
                           color: Colors.blue,
                           child: IconButton(
                             alignment: Alignment.center,
-                            onPressed: () => {},
+                            style: IconButton.styleFrom(backgroundColor: Colors.blueAccent),
+                            onPressed: () => {
+                              //Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsView())),
+                            },
                             color: Colors.white,
                             icon: const Icon(Icons.settings),
                           ),
@@ -175,7 +179,44 @@ class _LoginViewState extends State<LoginView> {
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: MaterialButton(
-                      onPressed: () async {},
+                      onPressed: () async {
+                        if (true) {
+                          if (true) {
+                            if (true
+                            //await apiBloc.login('serwis@ratmon.com', 'Password1!'
+                              //loginTextEditingController.value.text,
+                              //passwordTextEditingController.value.text,
+                            //)
+                              ) {
+                              Navigator.pushReplacement(
+                               context,
+                                MaterialPageRoute(
+                                 builder: (_) => const MainMenuView(),
+                               ),
+                             );
+                            }
+                          } else {
+                            showDialog(
+                              context: context,
+                              builder: (_) => AlertDialog(
+                                title: const Text('Połączenie Internetowe'),
+                                content: const Text('Proszę włączyć połączenie internetowe.'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text(
+                                      'Ok',
+                                      style: TextStyle(fontSize: 20, color: Colors.white),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
+                        }
+                      },
                       child: Text(
                         LocaleKeys.Login.tr(),
                         style: const TextStyle(color: Colors.white, fontSize: 16),

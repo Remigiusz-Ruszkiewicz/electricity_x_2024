@@ -1,10 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
 //import 'package:samalert/API_bloc.dart';
 import 'package:electricity_x_2024/login_view.dart';
 import 'package:electricity_x_2024/src/resources/themes/dark/dark_theme.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:async_builder/async_builder.dart';
+import 'package:flutter/material.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,13 +15,13 @@ Future<void> main() async {
         Locale('pl', 'PL'),
       ],
       path: 'assets/languages',
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

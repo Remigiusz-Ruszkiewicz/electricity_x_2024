@@ -1,23 +1,34 @@
-import 'package:electricity_x_2024/customWidgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
-class GiverPanel extends StatefulWidget {
+import 'base/page_widget.dart';
+
+class GiverPanel extends StatelessWidget {
   const GiverPanel({Key? key}) : super(key: key);
 
   @override
-  State<GiverPanel> createState() => _GiverPanelState();
-}
-
-class _GiverPanelState extends State<GiverPanel> {
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(title: 'GiverPanel', settingVisible: false,),
-      body: GestureDetector(
-        onTap: () {
-        },
+    return PageWidget(
+      title: 'Giver',
+      topWidget: Container(
+        color: Colors.amber,
+        width: 300,
+        height: 200,
+      ),
+      midWidget: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          Text('data1'),
+          Text('data2'),
+          Text('data3'),
+        ],
+      ),
+      bottomWidget: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          Text('data1'),
+          Text('data2'),
+          Text('data3'),
+        ],
       ),
     );
   }

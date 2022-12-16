@@ -1,4 +1,5 @@
 import 'package:electricity_x_2024/customWidgets/custom_appbar.dart';
+import 'package:electricity_x_2024/giver_panel.dart';
 import 'package:electricity_x_2024/taker_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -58,7 +59,7 @@ class _MainMenuViewState extends State<MainMenuView> {
             labelStyle: const TextStyle(fontSize: 18.0),
             onTap: () => {},
             //print('SECOND CHILD'),
-            onLongPress: () => {}, //print('SECOND CHILD LONG PRESS'),
+            onLongPress: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const GiverPanel())),
           ),
           SpeedDialChild(
             child: const Icon(Icons.keyboard_voice),
@@ -67,7 +68,7 @@ class _MainMenuViewState extends State<MainMenuView> {
             label: 'Biorca',
             labelStyle: const TextStyle(fontSize: 18.0),
             onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const TakerPanel())),
-            onLongPress: () => {}, //print('THIRD CHILD LONG PRESS'),
+            onLongPress: () => {},
           ),
 
           //add more menu item children here

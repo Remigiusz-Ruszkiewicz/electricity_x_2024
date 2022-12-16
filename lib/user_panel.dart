@@ -1,23 +1,34 @@
-import 'package:electricity_x_2024/customWidgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
-class UserPanel extends StatefulWidget {
+import 'base/page_widget.dart';
+
+class UserPanel extends StatelessWidget {
   const UserPanel({Key? key}) : super(key: key);
 
   @override
-  State<UserPanel> createState() => _UserPanelState();
-}
-
-class _UserPanelState extends State<UserPanel> {
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(title: 'UserPanel', settingVisible: false,),
-      body: GestureDetector(
-        onTap: () {
-        },
+    return PageWidget(
+      title: 'User',
+      topWidget: Container(
+        color: Colors.amber,
+        width: 300,
+        height: 200,
+      ),
+      midWidget: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          Text('data1'),
+          Text('data2'),
+          Text('data3'),
+        ],
+      ),
+      bottomWidget: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          Text('data1'),
+          Text('data2'),
+          Text('data3'),
+        ],
       ),
     );
   }

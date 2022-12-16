@@ -68,10 +68,7 @@ class _LoginViewState extends State<LoginView> {
                           color: Colors.blue,
                           child: IconButton(
                             alignment: Alignment.center,
-                            style: IconButton.styleFrom(backgroundColor: Colors.blueAccent),
-                            onPressed: () => {
-                              //Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsView())),
-                            },
+                            onPressed: () => {},
                             color: Colors.white,
                             icon: const Icon(Icons.settings),
                           ),
@@ -183,17 +180,17 @@ class _LoginViewState extends State<LoginView> {
                         if (true) {
                           if (true) {
                             if (true
-                            //await apiBloc.login('serwis@ratmon.com', 'Password1!'
-                              //loginTextEditingController.value.text,
-                              //passwordTextEditingController.value.text,
-                            //)
-                              ) {
+                                //await apiBloc.login('serwis@ratmon.com', 'Password1!'
+                                //loginTextEditingController.value.text,
+                                //passwordTextEditingController.value.text,
+                                //)
+                                ) {
                               Navigator.pushReplacement(
-                               context,
+                                context,
                                 MaterialPageRoute(
-                                 builder: (_) => const MainMenuView(),
-                               ),
-                             );
+                                  builder: (_) => const MainMenuView(),
+                                ),
+                              );
                             }
                           } else {
                             showDialog(

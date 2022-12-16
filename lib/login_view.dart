@@ -1,7 +1,11 @@
-import 'dart:convert';
-
-import 'package:electricity_x_2024/register_view.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:electricity_x_2024/generated/locale_keys.g.dart';
+import 'package:electricity_x_2024/register_view.dart';
+//import 'package:electricity_x_2024/views/groups_view.dart';
+
+//import 'package:electricity_x_2024/views/settings_view.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -48,9 +52,7 @@ class _LoginViewState extends State<LoginView> {
                           elevation: 5,
                           color: Colors.white,
                           margin: const EdgeInsets.all(10),
-                          child: const Image(
-                              image:
-                              AssetImage('assets/images/ratmon_icon.png')),
+                          child: const Image(image: AssetImage('assets/images/ratmon_icon.png')),
                         ),
                       ),
                       SizedBox(
@@ -66,13 +68,9 @@ class _LoginViewState extends State<LoginView> {
                           color: Colors.blue,
                           child: IconButton(
                             alignment: Alignment.center,
-                            style: IconButton.styleFrom(
-                                backgroundColor: Colors.blueAccent),
+                            style: IconButton.styleFrom(backgroundColor: Colors.blueAccent),
                             onPressed: () => {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (_) => const SettingsView())),
+                              //Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsView())),
                             },
                             color: Colors.white,
                             icon: const Icon(Icons.settings),
@@ -82,19 +80,18 @@ class _LoginViewState extends State<LoginView> {
                     ],
                   ),
                   const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-                  const Text(
-                    'Zaloguj się \n do aplikacji RATMON',
-                    style: TextStyle(color: Colors.white, fontSize: 30),
+                  Text(
+                    LocaleKeys.LoginTitle.tr(),
+                    style: const TextStyle(color: Colors.white, fontSize: 30),
                     textAlign: TextAlign.center,
                   ),
                   Row(
-                    children: const [
+                    children: [
                       Padding(
-                        padding: EdgeInsets.only(
-                            left: 15.0, right: 15.0, top: 30, bottom: 15),
+                        padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 30, bottom: 15),
                         child: Text(
-                          'E-Mail',
-                          style: TextStyle(
+                          LocaleKeys.Email.tr(),
+                          style: const TextStyle(
                             color: Color.fromRGBO(186, 186, 186, 1),
                             fontSize: 13,
                           ),
@@ -124,13 +121,12 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
                   Row(
-                    children: const [
+                    children: [
                       Padding(
-                        padding: EdgeInsets.only(
-                            left: 15.0, right: 15.0, top: 15, bottom: 0),
+                        padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                         child: Text(
-                          'Hasło',
-                          style: TextStyle(
+                          LocaleKeys.Password.tr(),
+                          style: const TextStyle(
                             color: Color.fromRGBO(186, 186, 186, 1),
                             fontSize: 13,
                           ),
@@ -139,8 +135,7 @@ class _LoginViewState extends State<LoginView> {
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(
-                        left: 15.0, right: 15.0, top: 15, bottom: 15),
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
                     //padding: EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -185,11 +180,46 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     child: MaterialButton(
                       onPressed: () async {
-
+                        if (_formKey.currentState!.validate()) {
+                          if (await InternetConnectionChecker().hasConnection) {
+                            if (true
+                            //await apiBloc.login('serwis@ratmon.com', 'Password1!'
+                              //loginTextEditingController.value.text,
+                              //passwordTextEditingController.value.text,
+                            //)
+                              ) {
+                              //Navigator.pushReplacement(
+                               // context,
+                                //MaterialPageRoute(
+                                //  builder: (_) => const GroupsView(),
+                               // ),
+                             // );
+                            }
+                          } else {
+                            showDialog(
+                              context: context,
+                              builder: (_) => AlertDialog(
+                                title: const Text('Połączenie Internetowe'),
+                                content: const Text('Proszę włączyć połączenie internetowe.'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text(
+                                      'Ok',
+                                      style: TextStyle(fontSize: 20, color: Colors.white),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
+                        }
                       },
-                      child: const Text(
-                        'Zaloguj się do aplikacji',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      child: Text(
+                        LocaleKeys.Login.tr(),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
                   ),
@@ -198,22 +228,17 @@ class _LoginViewState extends State<LoginView> {
                     height: 50,
                     width: 250,
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 2,
-                          color: const Color.fromRGBO(117, 117, 117, 1)),
+                      border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: MaterialButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const RegisterView()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const RegisterView()));
                       },
-                      child: const Text(
-                        'Zarejestruj konto',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      child: Text(
+                        LocaleKeys.Register.tr(),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
                   ),
@@ -226,18 +251,18 @@ class _LoginViewState extends State<LoginView> {
                     color: Color.fromRGBO(95, 94, 94, 1),
                   ),
                   const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-                  const Text(
-                    'Przypomnij Hasło',
-                    style: TextStyle(
+                  Text(
+                    LocaleKeys.RecoverPassword.tr(),
+                    style: const TextStyle(
                       color: Color.fromRGBO(186, 186, 186, 1),
                       fontSize: 16,
                       decoration: TextDecoration.underline,
                     ),
                   ),
                   const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-                  const Text(
-                    'Polityka prywatności',
-                    style: TextStyle(
+                  Text(
+                    LocaleKeys.PrivacyPolicy.tr(),
+                    style: const TextStyle(
                       color: Color.fromRGBO(186, 186, 186, 1),
                       fontSize: 16,
                       decoration: TextDecoration.underline,

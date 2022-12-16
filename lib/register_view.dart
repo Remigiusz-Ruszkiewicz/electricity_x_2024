@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
 import 'package:electricity_x_2024/generated/locale_keys.g.dart';
 import 'package:electricity_x_2024/login_view.dart';
+import 'package:flutter/material.dart';
 //import 'package:samalert/views/settings_view.dart';
 
 class RegisterView extends StatefulWidget {
@@ -62,10 +62,7 @@ class _RegisterViewState extends State<RegisterView> {
                         color: Colors.blue,
                         child: IconButton(
                           alignment: Alignment.center,
-                          style: IconButton.styleFrom(backgroundColor: Colors.blueAccent),
-                          onPressed: () => {
-                            //Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsView())),
-                          },
+                          onPressed: () => {},
                           color: Colors.white,
                           icon: const Icon(Icons.settings),
                         ),
@@ -140,7 +137,7 @@ class _RegisterViewState extends State<RegisterView> {
                       suffixIcon: IconButton(
                         onPressed: () => {
                           setState(
-                                () {
+                            () {
                               _passwordVisible = !_passwordVisible;
                             },
                           ),
@@ -184,7 +181,7 @@ class _RegisterViewState extends State<RegisterView> {
                       suffixIcon: IconButton(
                         onPressed: () => {
                           setState(
-                                () {
+                            () {
                               _passwordVisible = !_passwordVisible;
                             },
                           ),

@@ -10,6 +10,7 @@ import '../customWidgets/custom_appbar.dart';
 import '../customWidgets/divider_with_child.dart';
 import '../generated/locale_keys.g.dart';
 import '../giver_panel.dart';
+import '../main.dart';
 import '../taker_panel.dart';
 
 class PageWidget extends StatelessWidget {
@@ -39,6 +40,8 @@ class PageWidget extends StatelessWidget {
         gradientColors: getGradientColors(title),
       ),
       body: Container(
+        width: backgroundSize?.width,
+        height: backgroundSize?.height,
         decoration: const BoxDecoration(
           image: DecorationImage(
             alignment: Alignment.topCenter,

@@ -3,9 +3,8 @@ import 'package:electricity_x_2024/generated/locale_keys.g.dart';
 import 'package:electricity_x_2024/main_menu_view.dart';
 import 'package:electricity_x_2024/register_view.dart';
 import 'package:flutter/material.dart';
-//import 'package:electricity_x_2024/views/groups_view.dart';
 
-//import 'package:electricity_x_2024/views/settings_view.dart';
+import 'main.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -22,6 +21,8 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: backgroundSize?.width,
+        height: backgroundSize?.height,
         decoration: const BoxDecoration(
           image: DecorationImage(
             alignment: Alignment.topCenter,

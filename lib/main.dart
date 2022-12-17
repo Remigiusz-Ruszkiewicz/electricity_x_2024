@@ -19,6 +19,8 @@ Future<void> main() async {
   );
 }
 
+Size? backgroundSize;
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -30,7 +32,12 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       theme: darkTheme,
       debugShowCheckedModeBanner: false,
-      home: const LoginView(),
+      home: Builder(
+        builder: (BuildContext context) {
+          backgroundSize ??= MediaQuery.of(context).size;
+          return const LoginView();
+        },
+      ),
     );
   }
 }

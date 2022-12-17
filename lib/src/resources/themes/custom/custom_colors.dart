@@ -1,3 +1,1 @@
-class CustomColors{
-
-}
+class CustomColors {}

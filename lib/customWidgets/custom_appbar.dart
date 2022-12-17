@@ -46,26 +46,27 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             elevation: 5,
             color: Colors.transparent,
-            child:
-                const Image(image: AssetImage('assets/images/app_icon.png')),
+            child: const Image(image: AssetImage('assets/images/app_icon.png')),
           ),
         ),
       ),
-      actions: [
-        IconButton(
-          alignment: Alignment.center,
-          onPressed: () => {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (_) => const LoginView(),
+      actions: settingVisible
+          ? [
+              IconButton(
+                alignment: Alignment.center,
+                onPressed: () => {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const LoginView(),
+                    ),
+                  )
+                },
+                color: Colors.white,
+                icon: const Icon(Icons.logout),
               ),
-            )
-          },
-          color: Colors.white,
-          icon: const Icon(Icons.logout),
-        ),
-      ],
+            ]
+          : null,
     );
   }
 

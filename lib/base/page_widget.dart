@@ -15,6 +15,7 @@ class PageWidget extends StatelessWidget {
     required this.topWidget,
     this.midWidget,
     this.bottomWidget,
+    this.settingVisible = false,
     Key? key,
   }) : super(key: key);
 
@@ -22,13 +23,14 @@ class PageWidget extends StatelessWidget {
   final Widget topWidget;
   final Widget? midWidget;
   final Widget? bottomWidget;
+  final bool settingVisible;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
         title: title,
-        settingVisible: false,
+        settingVisible: settingVisible,
       ),
       body: SingleChildScrollView(
         child: Padding(

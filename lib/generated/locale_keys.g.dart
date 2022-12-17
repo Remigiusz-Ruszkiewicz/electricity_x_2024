@@ -215,6 +215,6 @@ abstract class  LocaleKeys {
   static const mainMenu = 'mainMenu';
   static const giver = 'giver';
   static const taker = 'taker';
-  static const userPanel = 'userPanel';
+  static const intermediates = 'intermediates';
 
 }

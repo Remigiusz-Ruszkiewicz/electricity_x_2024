@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'base/page_widget.dart';
 import 'generated/locale_keys.g.dart';
 
-class UserPanel extends StatelessWidget {
-  const UserPanel({Key? key}) : super(key: key);
+class IntermediatesPanel extends StatelessWidget {
+  const IntermediatesPanel({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PageWidget(
-      title: LocaleKeys.userPanel.tr(),
+      title: LocaleKeys.intermediates.tr(),
       topWidget: Container(
         color: Colors.amber,
         width: 300,

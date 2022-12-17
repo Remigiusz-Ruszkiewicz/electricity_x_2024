@@ -34,6 +34,7 @@ class PageWidget extends StatelessWidget {
         settingVisible: settingVisible,
       ),
       body: SingleChildScrollView(
+        clipBehavior: Clip.antiAlias,
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Center(
@@ -131,8 +132,7 @@ class PageWidget extends StatelessWidget {
       foregroundColor: foregroundColor,
       label: label,
       labelStyle: const TextStyle(fontSize: 18.0),
-      onTap: () => Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => targetView)),
+      onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => targetView)),
     );
   }
 }

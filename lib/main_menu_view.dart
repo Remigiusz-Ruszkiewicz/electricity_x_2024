@@ -3,6 +3,7 @@ import 'package:electricity_x_2024/base/page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:spring/spring.dart';
 
+import 'customWidgets/custom_card.dart';
 import 'generated/locale_keys.g.dart';
 
 class MainMenuView extends StatelessWidget {
@@ -26,97 +27,63 @@ class MainMenuView extends StatelessWidget {
           ),
         )),
       ),
-      midWidget: ListView.builder(
-        shrinkWrap: true,
-        itemCount: widgetList.length,
-        itemBuilder: (context, index) {
-          final dupa = 300 * index;
-          return SlideAnimation(
-            delay: Duration(milliseconds: dupa),
-            slideType: index.isEven ? SlideType.slide_in_right : SlideType.slide_in_left,
-            child: widgetList[index],
-          );
+      midWidget: NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (OverscrollIndicatorNotification overscroll) {
+          overscroll.disallowIndicator();
+          return true;
         },
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemCount: widgetList.length,
+          itemBuilder: (context, index) {
+            final dupa = 300 * index;
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: SlideAnimation(
+                delay: Duration(milliseconds: dupa),
+                slideType: index.isEven ? SlideType.slide_in_right : SlideType.slide_in_left,
+                child: widgetList[index],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
 
   List<Widget> getMidWidgets() => [
-        const Card(
-          color: Colors.green,
-          elevation: 16,
-          shadowColor: Colors.green,
-          margin: EdgeInsets.all(16),
-          child: Text(
-            'Oszczedziles dzisiaj 2137 zł!',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24),
-          ),
-        ),
-        Card(
-          color: Colors.black.withOpacity(.6),
-          elevation: 16,
-          margin: const EdgeInsets.all(16),
-          shadowColor: Colors.green,
-          child: Container(
-            padding: EdgeInsets.all(8),
-            child: const Text(
-              'Oszczedziles dzisiaj 2137 zł!',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 24),
-            ),
-          ),
-        ),
-        const Card(
-          color: Colors.green,
-          elevation: 16,
-          shadowColor: Colors.green,
-          margin: EdgeInsets.all(16),
-          child: Text(
-            'Oszczedziles dzisiaj 2137 zł!',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24),
-          ),
-        ),
-        const Card(
-          color: Colors.green,
-          elevation: 16,
-          shadowColor: Colors.green,
-          margin: EdgeInsets.all(16),
-          child: Text(
-            'Oszczedziles dzisiaj 2137 zł!',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24),
-          ),
-        ),
-        const Card(
-          color: Colors.green,
-          elevation: 16,
-          shadowColor: Colors.green,
-          margin: EdgeInsets.all(16),
-          child: Text(
-            'Oszczedziles dzisiaj 2137 zł!',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24),
-          ),
-        ),
-        const Card(
-          color: Colors.green,
-          elevation: 16,
-          shadowColor: Colors.green,
-          margin: EdgeInsets.all(16),
-          child: Text(
-            'Oszczedziles dzisiaj 2137 zł!',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24),
-          ),
-        ),
+        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł! Oszczedziles dzisiaj 2137 zł!'),
+        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
+        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
+        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
+        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!')
       ];
+}
+
+class _MiddleWidget extends StatelessWidget {
+  const _MiddleWidget(this.text, {Key? key}) : super(key: key);
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomCard(
+      color: const Color.fromRGBO(100, 255, 110, .3),
+      content: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 24),
+        ),
+      ),
+    );
+  }
 }
 
 class SlideAnimation extends StatelessWidget {
   SlideAnimation({Key? key, required this.child, required this.slideType, this.delay = const Duration(seconds: 0)})
       : super(key: key);
+
   final SpringController springController = SpringController();
   final Widget child;
   final SlideType slideType;

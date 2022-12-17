@@ -2,120 +2,208 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatefulWidget {
-  const ProductCard({ Key? key }) : super(key: key);
+  const ProductCard({Key? key}) : super(key: key);
 
   @override
   _ProductCardState createState() => _ProductCardState();
 }
 
 class _ProductCardState extends State<ProductCard> {
-  int _current = 0;
   dynamic _selectedIndex = {};
 
-  CarouselController _carouselController = new CarouselController();
+  final CarouselController _carouselController = CarouselController();
 
-  List<dynamic> _products = [
+  final List<dynamic> _products = [
     {
-      'title': 'Adidas Originals \nby Alexander Wang',
-      'image': 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGFkaWRhc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60',
-      'description': 'Limited collection'
+      'image': 'assets/images/foto_1.png',
+      'title': 'Colombo Energy',
+      'number': '798 552 016',
+      'website': 'www.colomboenergy.com'
     },
     {
-      'title': 'Adidas Originals \nby Alexander Wang',
-      'image': 'https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2265&q=80',
-      'description': 'Limited collection'
+      'image': 'assets/images/foto_2.png',
+      'title': 'Power Energy',
+      'number': '789 655 241',
+      'website': 'www.powerenergy.com'
     },
     {
-      'title': 'Adidas Originals \nby Alexander Wang',
-      'image': 'https://images.unsplash.com/photo-1589188056053-28910dc61d38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2264&q=80',
-      'description': 'Limited collection'
+      'image': 'assets/images/foto_3.png',
+      'title': 'Foto Energy',
+      'number': '602 993 103',
+      'website': 'www.fotoenergy.com'
+    },
+    {
+      'image': 'assets/images/foto_4.png',
+      'title': 'SONASL Energy',
+      'number': '536 551 888',
+      'website': 'www.sonaslenergy.com'
     }
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: double.infinity,
-        height: double.infinity,
-        child: CarouselSlider(
-            carouselController: _carouselController,
-            options: CarouselOptions(
-                height: 450.0,
-                aspectRatio: 16/9,
-                viewportFraction: 0.70,
-                enlargeCenterPage: true,
-                pageSnapping: true,
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    _current = index;
-                  });
-                }
-            ),
-            items: _products.map((movie) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        if (_selectedIndex == movie) {
-                          _selectedIndex = {};
-                        } else {
-                          _selectedIndex = movie;
-                        }
-                      });
-                    },
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 300),
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          border: _selectedIndex == movie ? Border.all(color: Colors.blue.shade500, width: 3) : null,
-                          boxShadow: _selectedIndex == movie ? [
-                            BoxShadow(
-                                color: Colors.blue.shade100,
-                                blurRadius: 30,
-                                offset: Offset(0, 10)
-                            )
-                          ] : [
-                            BoxShadow(
-                                color: Colors.grey.withOpacity(0.2),
-                                blurRadius: 20,
-                                offset: Offset(0, 5)
-                            )
-                          ]
-                      ),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 320,
-                              margin: EdgeInsets.only(top: 10),
-                              clipBehavior: Clip.hardEdge,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Image.network(movie['image'], fit: BoxFit.cover),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+      child: CarouselSlider(
+          carouselController: _carouselController,
+          options: CarouselOptions(
+              autoPlay: true,
+              height: 450.0,
+              aspectRatio: 16 / 9,
+              viewportFraction: 0.70,
+              enlargeCenterPage: true,
+              pageSnapping: true,
+              onPageChanged: (index, reason) {}),
+          items: _products.map((movie) {
+            return Builder(
+              builder: (BuildContext context) {
+                return GestureDetector(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(32.0))),
+                          contentPadding: const EdgeInsets.only(top: 10.0),
+                          content: Container(
+                            width: 300.0,
+                            height: 200,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    Text(
+                                      movie['title'],
+                                      style: const TextStyle(fontSize: 24.0),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 5.0,
+                                ),
+                                const Divider(
+                                  color: Colors.lightGreenAccent,
+                                  height: 4.0,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          10, 10, 10, 10),
+                                      child: Row(
+                                        children: [
+                                          const Icon(Icons.phone),
+                                          Text(
+                                            ' : ' + movie['number'],
+                                            style:
+                                                const TextStyle(fontSize: 18.0),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          10, 0, 10, 10),
+                                      child: Row(
+                                        children: [
+                                          const Icon(Icons.web_sharp),
+                                          Text(
+                                            ' : ' + movie['website'],
+                                            style:
+                                                const TextStyle(fontSize: 18.0),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
                             ),
-                            SizedBox(height: 20,),
-                            Text(movie['title'], style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold
-                            ),),
-                            SizedBox(height: 20,),
-                            Text(movie['description'], style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey.shade600
-                            ),),
-                          ],
-                        ),
+                          ),
+                        );
+                      },
+                    );
+                    setState(() {
+                      if (_selectedIndex == movie) {
+                        _selectedIndex = {};
+                      } else {
+                        _selectedIndex = movie;
+                      }
+                    });
+                  },
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 320,
+                            margin: const EdgeInsets.only(top: 10),
+                            clipBehavior: Clip.hardEdge,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child:
+                                Image.asset(movie['image'], fit: BoxFit.cover),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                            child: Column(
+                              children: [
+                                const Divider(
+                                  color: Colors.lightGreenAccent,
+                                  thickness: 2,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      movie['title'],
+                                      style: const TextStyle(
+                                          fontSize: 25, color: Colors.black),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.phone,
+                                      color: Colors.grey.shade600,
+                                    ),
+                                    Text(
+                                      ' : ' + movie['number'],
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          color: Colors.grey.shade600),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  );
-                },
-              );
-            }).toList()
-        ),
-      );
+                  ),
+                );
+              },
+            );
+          }).toList()),
+    );
   }
 }

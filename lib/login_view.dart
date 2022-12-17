@@ -37,39 +37,70 @@ class _LoginViewState extends State<LoginView> {
             FocusScope.of(context).requestFocus(FocusNode());
           },
           child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(35.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      'EnergyWise',
-                      style: TextStyle(color: Colors.white, fontSize: 30),
-                      textAlign: TextAlign.center,
+            child: Form(
+              key: _formKey,
+              child: Padding(
+                padding: const EdgeInsets.all(35.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    const SizedBox(
+                      height: 50,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 250,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: TextFormField(
-                      controller: loginController,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter E-Mail';
-                        }
-                        return null;
-                      },
-                      cursorColor: const Color.fromRGBO(0, 192, 75, .2),
-                      decoration: InputDecoration(
+                    const Padding(
+                      padding: EdgeInsets.only(top: 8.0),
+                      child: Text(
+                        'EnergyWise',
+                        style: TextStyle(color: Colors.white, fontSize: 30),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 250,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: TextFormField(
+                        controller: loginController,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter E-Mail';
+                          }
+                          return null;
+                        },
+                        cursorColor: const Color.fromRGBO(0, 192, 75, .2),
+                        decoration: InputDecoration(
+                            focusedBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 3,
+                                color: Color.fromRGBO(0, 192, 75, .9),
+                              ),
+                            ),
+                            filled: true,
+                            fillColor: Colors.black12.withOpacity(0.1),
+                            enabledBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 1,
+                                color: Color.fromRGBO(0, 192, 75, .6),
+                              ),
+                            ),
+                            hintText: 'E-Mail',
+                            prefixIcon: const Icon(Icons.person, color: Color.fromRGBO(0, 192, 75, .6)),
+                            constraints: const BoxConstraints(maxWidth: 400)),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 0),
+                      child: TextFormField(
+                        cursorColor: const Color.fromRGBO(0, 192, 75, .2),
+                        obscureText: !_passwordVisible,
+                        controller: passwordController,
+                        enableSuggestions: false,
+                        autocorrect: false,
+                        obscuringCharacter: "*",
+                        decoration: InputDecoration(
                           focusedBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
                               width: 3,
@@ -84,123 +115,86 @@ class _LoginViewState extends State<LoginView> {
                               color: Color.fromRGBO(0, 192, 75, .6),
                             ),
                           ),
-                          hintText: 'E-Mail',
-                          prefixIcon: const Icon(Icons.person,
-                              color: Color.fromRGBO(0, 192, 75, .6)),
-                          constraints: const BoxConstraints(maxWidth: 400)),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 0),
-                    child: TextFormField(
-                      cursorColor: const Color.fromRGBO(0, 192, 75, .2),
-                      obscureText: !_passwordVisible,
-                      controller: passwordController,
-                      enableSuggestions: false,
-                      autocorrect: false,
-                      obscuringCharacter: "*",
-                      decoration: InputDecoration(
-                        focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 3,
-                            color: Color.fromRGBO(0, 192, 75, .9),
-                          ),
-                        ),
-                        filled: true,
-                        fillColor: Colors.black12.withOpacity(0.1),
-                        enabledBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 1,
-                            color: Color.fromRGBO(0, 192, 75, .6),
-                          ),
-                        ),
-                        hintText: 'Hasło',
-                        prefixIcon: const Icon(Icons.lock,
-                            color: Color.fromRGBO(0, 192, 75, .6)),
-                        constraints: const BoxConstraints(maxWidth: 400),
-                        suffixIcon: IconButton(
-                          onPressed: () => {
-                            setState(
-                              () {
-                                _passwordVisible = !_passwordVisible;
-                              },
-                            ),
-                          },
-                          color: const Color.fromRGBO(0, 192, 75, .6),
-                          icon: const Icon(Icons.remove_red_eye_outlined),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    child: Divider(
-                      thickness: 2,
-                      color: Color.fromRGBO(0, 192, 75, .9),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  Container(
-                    height: 50,
-                    width: 250,
-                    decoration: BoxDecoration(
-                      color: const Color.fromRGBO(0, 192, 75, .6),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: MaterialButton(
-                      onPressed: () => {
-                        if (_formKey.currentState!.validate() &&
-                            loginController.text.toLowerCase() == 'jarosz' &&
-                            passwordController.text.trim() == '')
-                          {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const MainMenuView(),
+                          hintText: 'Hasło',
+                          prefixIcon: const Icon(Icons.lock, color: Color.fromRGBO(0, 192, 75, .6)),
+                          constraints: const BoxConstraints(maxWidth: 400),
+                          suffixIcon: IconButton(
+                            onPressed: () => {
+                              setState(
+                                () {
+                                  _passwordVisible = !_passwordVisible;
+                                },
                               ),
-                            ),
-                          }
-                      },
-                      child: Text(
-                        LocaleKeys.Login.tr(),
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 16),
+                            },
+                            color: const Color.fromRGBO(0, 192, 75, .6),
+                            icon: const Icon(Icons.remove_red_eye_outlined),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                    child: Container(
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      child: Divider(
+                        thickness: 2,
+                        color: Color.fromRGBO(0, 192, 75, .9),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    Container(
                       height: 50,
                       width: 250,
                       decoration: BoxDecoration(
-                        border: Border.all(
-                            width: 2,
-                            color: const Color.fromRGBO(117, 117, 117, 1)),
-                        color: Colors.transparent,
+                        color: const Color.fromRGBO(0, 192, 75, .6),
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: MaterialButton(
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => const RegisterView()));
+                        onPressed: () => {
+                          if (_formKey.currentState!.validate() &&
+                              loginController.text.toLowerCase() == 'jarosz' &&
+                              passwordController.text.trim() == '')
+                            {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => const MainMenuView(),
+                                ),
+                              ),
+                            }
                         },
                         child: Text(
-                          LocaleKeys.Register.tr(),
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 16),
+                          LocaleKeys.Login.tr(),
+                          style: const TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      child: Container(
+                        height: 50,
+                        width: 250,
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: MaterialButton(
+                          onPressed: () {
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const RegisterView()));
+                          },
+                          child: Text(
+                            LocaleKeys.Register.tr(),
+                            style: const TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

@@ -72,8 +72,7 @@ class _RegisterViewState extends State<RegisterView> {
                               ),
                             ),
                             hintText: 'E-Mail',
-                            prefixIcon: const Icon(Icons.person,
-                                color: Color.fromRGBO(0, 192, 75, .6)),
+                            prefixIcon: const Icon(Icons.person, color: Color.fromRGBO(0, 192, 75, .6)),
                             constraints: const BoxConstraints(maxWidth: 400)),
                       ),
                     ),
@@ -81,8 +80,7 @@ class _RegisterViewState extends State<RegisterView> {
                       height: 10,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                          left: 15.0, right: 15.0, top: 15, bottom: 15),
+                      padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
                       child: TextFormField(
                         cursorColor: const Color.fromRGBO(0, 192, 75, .2),
                         obscureText: !_passwordVisible,
@@ -105,8 +103,7 @@ class _RegisterViewState extends State<RegisterView> {
                             ),
                           ),
                           hintText: 'Hasło',
-                          prefixIcon: const Icon(Icons.lock,
-                              color: Color.fromRGBO(0, 192, 75, .6)),
+                          prefixIcon: const Icon(Icons.lock, color: Color.fromRGBO(0, 192, 75, .6)),
                           constraints: const BoxConstraints(maxWidth: 400),
                           suffixIcon: IconButton(
                             onPressed: () => {
@@ -123,8 +120,7 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                          left: 15.0, right: 15.0, top: 15, bottom: 15),
+                      padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
                       child: TextFormField(
                         cursorColor: const Color.fromRGBO(0, 192, 75, .2),
                         obscureText: !_passwordVisible,
@@ -147,20 +143,29 @@ class _RegisterViewState extends State<RegisterView> {
                             ),
                           ),
                           hintText: 'Potwierdź hasło',
-                          prefixIcon: const Icon(Icons.lock,
-                              color: Color.fromRGBO(0, 192, 75, .6)),
+                          prefixIcon: const Icon(Icons.lock, color: Color.fromRGBO(0, 192, 75, .6)),
                           constraints: const BoxConstraints(maxWidth: 400),
                           suffixIcon: IconButton(
-                            onPressed: () => setState(
-                                () => _passwordVisible = !_passwordVisible),
+                            onPressed: () => setState(() => _passwordVisible = !_passwordVisible),
                             color: const Color.fromRGBO(0, 192, 75, .6),
                             icon: const Icon(Icons.remove_red_eye_outlined),
                           ),
                         ),
                       ),
                     ),
-                    const Padding(padding: EdgeInsets.fromLTRB(0, 50, 0, 10)),
-                    const SizedBox(height: 50),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      child: Divider(
+                        thickness: 2,
+                        color: Color.fromRGBO(0, 192, 75, .9),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
                     Container(
                       height: 50,
                       width: 250,
@@ -172,8 +177,7 @@ class _RegisterViewState extends State<RegisterView> {
                         onPressed: () {},
                         child: Text(
                           LocaleKeys.Register.tr(),
-                          style:
-                              const TextStyle(color: Colors.white, fontSize: 16),
+                          style: const TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ),
                     ),
@@ -182,23 +186,17 @@ class _RegisterViewState extends State<RegisterView> {
                       height: 50,
                       width: 250,
                       decoration: BoxDecoration(
-                        border: Border.all(
-                            width: 2,
-                            color: const Color.fromRGBO(117, 117, 117, 1)),
+                        border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
                         color: Colors.transparent,
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: MaterialButton(
                         onPressed: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => const LoginView()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginView()));
                         },
                         child: Text(
                           LocaleKeys.BackToLogin.tr(),
-                          style:
-                              const TextStyle(color: Colors.white, fontSize: 16),
+                          style: const TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ),
                     ),

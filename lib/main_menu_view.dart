@@ -34,11 +34,11 @@ class MainMenuView extends StatelessWidget {
           shrinkWrap: true,
           itemCount: widgetList.length,
           itemBuilder: (context, index) {
-            final dupa = 300 * index;
+            final delayDurationTime = 300 * index;
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: SlideAnimation(
-                delay: Duration(milliseconds: dupa),
+                delay: Duration(milliseconds: delayDurationTime),
                 slideType: index.isEven ? SlideType.slide_in_right : SlideType.slide_in_left,
                 child: widgetList[index],
               ),

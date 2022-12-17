@@ -14,16 +14,16 @@ class TakerPanel extends StatelessWidget {
           children: const [
             Text(
               'Saldo twojego konta',
-              style: TextStyle(color: Colors.orangeAccent),
+              style: TextStyle(color: Colors.deepOrange),
             ),
             Image(
               image: AssetImage('assets/images/saldo_wykres.png'),
-              color: Colors.orangeAccent,
+              color: Colors.deepOrange,
             ),
           ],
         ),
         midWidget: ExpansionTile(
-          title: const Text('Historia Transakcji', style: TextStyle(color: Colors.orangeAccent)),
+          title: const Text('Historia Transakcji', style: TextStyle(color: Colors.deepOrange)),
           children: [
             SizedBox(
               height: 80,

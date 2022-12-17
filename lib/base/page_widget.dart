@@ -45,7 +45,7 @@ class PageWidget extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(
             alignment: Alignment.topCenter,
-            image: AssetImage("assets/images/logo.png"),
+            image: AssetImage("assets/images/logo_opacity.png"),
             fit: BoxFit.cover,
             opacity: 0.1,
           ),

@@ -33,21 +33,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       titleSpacing: 0,
       leadingWidth: 70,
-      leading: Padding(
-        padding: const EdgeInsets.all(8.0),
+      leading: const Padding(
+        padding:  EdgeInsets.all(8.0),
         child: SizedBox(
           height: 48,
           width: 48,
-          child: Card(
-            semanticContainer: true,
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            elevation: 5,
-            color: Colors.transparent,
-            child: const Image(image: AssetImage('assets/images/app_icon.png')),
-          ),
+          child:  Image(image: AssetImage('assets/images/logo.png')),
         ),
       ),
       actions: settingVisible

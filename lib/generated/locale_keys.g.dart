@@ -216,5 +216,6 @@ abstract class  LocaleKeys {
   static const giver = 'giver';
   static const taker = 'taker';
   static const intermediates = 'intermediates';
+  static const mapPanel = 'mapPanel';
 
 }

@@ -213,5 +213,6 @@
   "mainMenu": "Menu główne",
   "giver": "Dawca",
   "taker": "Biorca",
-  "intermediates": "Pośrednicy"
+  "intermediates": "Pośrednicy",
+  "mapPanel": "Mapy"
 }

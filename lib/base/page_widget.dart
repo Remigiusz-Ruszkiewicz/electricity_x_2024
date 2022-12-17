@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:electricity_x_2024/main_menu_view.dart';
+import 'package:electricity_x_2024/map_panel.dart';
 import 'package:electricity_x_2024/user_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -117,6 +118,19 @@ class PageWidget extends StatelessWidget {
             foregroundColor: Colors.white,
             label: LocaleKeys.taker.tr(),
             targetView: const TakerPanel(),
+          ),
+          _getFixedChild(
+            context,
+            icon: SvgPicture.asset(
+              'assets/images/map.svg',
+              color: Colors.white,
+              width: 25,
+              height: 25,
+            ),
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
+            label: LocaleKeys.mapPanel.tr(),
+            targetView: const MapPanel(),
           ),
         ],
       ),

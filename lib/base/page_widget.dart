@@ -179,7 +179,7 @@ class PageWidget extends StatelessWidget {
   }) {
     if (title == label) {
       targetView = const MainMenuView();
-      label = LocaleKeys.mainMenu.tr();
+      label = LocaleKeys.mainMenu;
       icon = const Icon(Icons.home);
     }
 

@@ -3,7 +3,7 @@ import 'package:electricity_x_2024/base/page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:spring/spring.dart';
 
-import 'customWidgets/custom_card.dart';
+import 'package:electricity_x_2024/customWidgets/custom_card.dart';
 import 'generated/locale_keys.g.dart';
 
 class MainMenuView extends StatelessWidget {

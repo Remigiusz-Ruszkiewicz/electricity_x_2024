@@ -30,11 +30,29 @@ class MapPanel extends StatelessWidget {
                     child: GoogleMap(
                       initialCameraPosition: const CameraPosition(
                         target: LatLng(50.068179687218525, 19.94116559466378),
-                        zoom: 17,
+                        zoom: 12,
                       ),
                       markers: {
                         const Marker(
-                            markerId: MarkerId('TEST'), position: LatLng(50.068279687218525, 19.94116559466378))
+                          markerId: MarkerId('TEST'),
+                          position:
+                              LatLng(50.068279687218525, 19.94116559466378),
+                        ),
+                        const Marker(
+                          markerId: MarkerId('TEST1'),
+                          position:
+                              LatLng(50.069279687218525, 19.94116559466378),
+                        ),
+                        const Marker(
+                          markerId: MarkerId('TEST2'),
+                          position:
+                              LatLng(50.070279687218525, 19.94116559466378),
+                        ),
+                        const Marker(
+                          markerId: MarkerId('TEST3'),
+                          position:
+                              LatLng(50.071279687218525, 19.94116559466378),
+                        ),
                       },
                     ),
                   ),

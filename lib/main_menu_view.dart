@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:electricity_x_2024/base/page_widget.dart';
 import 'package:electricity_x_2024/customWidgets/custom_card.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +12,7 @@ class MainMenuView extends StatelessWidget {
   Widget build(BuildContext context) {
     final widgetList = getMidWidgets();
     return PageWidget(
-      title: LocaleKeys.mainMenu.tr(),
+      title: LocaleKeys.mainMenu,
       settingVisible: true,
       topWidget: SlideAnimation(
         slideType: SlideType.slide_in_top,

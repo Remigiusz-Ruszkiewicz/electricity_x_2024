@@ -33,25 +33,31 @@ class PageWidget extends StatelessWidget {
         title: title,
         settingVisible: settingVisible,
       ),
-      body: SingleChildScrollView(
-        clipBehavior: Clip.antiAlias,
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: topWidget,
-                ),
-                if (midWidget != null)
+      body: NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (OverscrollIndicatorNotification overscroll) {
+          overscroll.disallowIndicator();
+          return false;
+        },
+        child: SingleChildScrollView(
+          clipBehavior: Clip.antiAlias,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: midWidget,
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: topWidget,
                   ),
-                if (bottomWidget != null) bottomWidget!,
-              ],
+                  if (midWidget != null)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: midWidget,
+                    ),
+                  if (bottomWidget != null) bottomWidget!,
+                ],
+              ),
             ),
           ),
         ),

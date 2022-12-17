@@ -70,7 +70,7 @@ class _RegisterViewState extends State<RegisterView> {
                             ),
                           ),
                           hintText: 'E-Mail',
-                          prefixIcon: const Icon(Icons.person),
+                          prefixIcon: const Icon(Icons.person, color: Color.fromRGBO(0, 192, 75, .6)),
                           constraints: const BoxConstraints(maxWidth: 400)),
                     ),
                   ),
@@ -100,7 +100,7 @@ class _RegisterViewState extends State<RegisterView> {
                           ),
                         ),
                         hintText: 'Hasło',
-                        prefixIcon: const Icon(Icons.lock),
+                        prefixIcon: const Icon(Icons.lock, color: Color.fromRGBO(0, 192, 75, .6)),
                         constraints: const BoxConstraints(maxWidth: 400),
                         suffixIcon: IconButton(
                           onPressed: () => {
@@ -139,7 +139,7 @@ class _RegisterViewState extends State<RegisterView> {
                           ),
                         ),
                         hintText: 'Potwierdź hasło',
-                        prefixIcon: const Icon(Icons.lock),
+                        prefixIcon: const Icon(Icons.lock, color: Color.fromRGBO(0, 192, 75, .6)),
                         constraints: const BoxConstraints(maxWidth: 400),
                         suffixIcon: IconButton(
                           onPressed: () => setState(() => _passwordVisible = !_passwordVisible),

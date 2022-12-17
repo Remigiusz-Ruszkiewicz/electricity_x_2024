@@ -36,6 +36,7 @@ class PageWidget extends StatelessWidget {
       appBar: CustomAppBar(
         title: title.tr(),
         settingVisible: settingVisible,
+        gradientColors: getGradientColors(),
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -140,6 +141,33 @@ class PageWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  List<Color> getGradientColors() {
+    switch (targetView.runtimeType) {
+      case TakerPanel:
+        backgroundColor = Colors.deepOrange;
+      case GiverPanel:
+        backgroundColor = Colors.blue;
+      case MapPanel:
+        backgroundColor = Colors.amber;
+      case IntermediatesPanel:
+        return [
+          const Color.fromRGBO(244, 67, 54, .8),
+          const Color.fromRGBO(244, 67, 54, .7),
+          const Color.fromRGBO(244, 67, 54, .5),
+          const Color.fromRGBO(244, 67, 54, .3),
+          const Color.fromRGBO(244, 67, 54, .2),
+        ];
+      default:
+        return [
+          const Color.fromRGBO(0, 192, 75, .8),
+          const Color.fromRGBO(0, 192, 75, .7),
+          const Color.fromRGBO(0, 180, 75, .5),
+          const Color.fromRGBO(0, 145, 75, .3),
+          const Color.fromRGBO(0, 120, 75, .2),
+        ];
+    }
   }
 
   SpeedDialChild _getFixedChild(

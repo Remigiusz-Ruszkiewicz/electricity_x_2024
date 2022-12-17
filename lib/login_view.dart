@@ -21,7 +21,6 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: null,
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -42,15 +41,13 @@ class _LoginViewState extends State<LoginView> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const SizedBox(
-                    height: 50,
-                  ),
+                  //const SizedBox(height: 50),
                   const Text(
                     'TU BĘDZIE NAZWA',
                     style: TextStyle(color: Colors.white, fontSize: 30),
                     textAlign: TextAlign.center,
                   ),
-                  const Spacer(),
+                  //const Spacer(),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
@@ -70,11 +67,11 @@ class _LoginViewState extends State<LoginView> {
                             ),
                           ),
                           hintText: 'E-Mail',
-                          prefixIcon: const Icon(Icons.person),
+                          prefixIcon: const Icon(Icons.person, color: Color.fromRGBO(0, 192, 75, .6)),
                           constraints: const BoxConstraints(maxWidth: 400)),
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  //const SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
                     child: TextFormField(
@@ -98,7 +95,7 @@ class _LoginViewState extends State<LoginView> {
                           ),
                         ),
                         hintText: 'Hasło',
-                        prefixIcon: const Icon(Icons.lock),
+                        prefixIcon: const Icon(Icons.lock, color: Color.fromRGBO(0, 192, 75, .6)),
                         constraints: const BoxConstraints(maxWidth: 400),
                         suffixIcon: IconButton(
                           onPressed: () => {
@@ -128,7 +125,7 @@ class _LoginViewState extends State<LoginView> {
                     height: 50,
                     width: 250,
                     decoration: BoxDecoration(
-                      color: Color.fromRGBO(0, 192, 75, .6),
+                      color: const Color.fromRGBO(0, 192, 75, .6),
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: MaterialButton(

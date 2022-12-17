@@ -117,7 +117,7 @@ class _LoginViewState extends State<LoginView> {
                             color: Color.fromRGBO(54, 53, 53, 1),
                           ),
                         ),
-                        constraints: BoxConstraints(maxWidth: 400),
+                        constraints: const BoxConstraints(maxWidth: 400),
                         suffixIcon: IconButton(
                           onPressed: () => {
                             setState(

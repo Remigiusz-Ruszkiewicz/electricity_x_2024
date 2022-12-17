@@ -16,6 +16,7 @@ class PageWidget extends StatelessWidget {
     required this.topWidget,
     this.midWidget,
     this.bottomWidget,
+    this.settingVisible = false,
     Key? key,
   }) : super(key: key);
 
@@ -23,13 +24,14 @@ class PageWidget extends StatelessWidget {
   final Widget topWidget;
   final Widget? midWidget;
   final Widget? bottomWidget;
+  final bool settingVisible;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
         title: title,
-        settingVisible: false,
+        settingVisible: settingVisible,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -75,8 +77,8 @@ class PageWidget extends StatelessWidget {
             icon: const Icon(Icons.accessibility),
             backgroundColor: Colors.green,
             foregroundColor: Colors.white,
-            label: LocaleKeys.userPanel.tr(),
-            targetView: const UserPanel(),
+            label: LocaleKeys.intermediates.tr(),
+            targetView: const IntermediatesPanel(),
           ),
           _getFixedChild(
             context,

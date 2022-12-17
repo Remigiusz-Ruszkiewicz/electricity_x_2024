@@ -12,6 +12,7 @@ class MainMenuView extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageWidget(
       title: LocaleKeys.mainMenu.tr(),
+      settingVisible: true,
       topWidget: Center(
         child: SvgPicture.asset('assets/images/star.svg'),
       ),

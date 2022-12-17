@@ -67,10 +67,10 @@ class _RegisterViewState extends State<RegisterView> {
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: TextField(
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           width: 2,

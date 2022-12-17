@@ -32,15 +32,22 @@ class GiverPanel extends StatelessWidget {
           ),
         ),
       ),
-      midWidget: getCard('W tym tygodniu wyprodukowałeś 23232kWh eko energii!'),
-      bottomWidget: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      midWidget: Column(
         children: [
-          Expanded(
-            child: getCard('Odsprzedałeś 456kWh'),
-          ),
-          Expanded(
-            child: getCard('Zarobiłeś 1111zł'),
+          getCard('W tym tygodniu wyprodukowałeś 23232kWh eko energii!'),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: getCard('Odsprzedałeś 456kWh'),
+                ),
+                Expanded(
+                  child: getCard('Zarobiłeś 1111zł'),
+                ),
+              ],
+            ),
           ),
         ],
       ),

@@ -17,14 +17,12 @@ class MainMenuView extends StatelessWidget {
       topWidget: SlideAnimation(
         slideType: SlideType.slide_in_top,
         child: const Center(
-            child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 16),
           child: Text(
             'Witaj Krzysztof! Dziekujemy ze jestes z nami',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 32),
           ),
-        )),
+        ),
       ),
       midWidget: NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (OverscrollIndicatorNotification overscroll) {

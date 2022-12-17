@@ -86,33 +86,33 @@ class _MapPanelState extends State<MapPanel> {
           ),
         ),
       ),
-      midWidget: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Pokaż farmy',
-                  style: TextStyle(fontSize: 27, color: Colors.amber),
+      midWidget: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Pokaż farmy',
+                style: TextStyle(fontSize: 27, color: Colors.amber),
+              ),
+              Transform.scale(
+                scale: 1.3,
+                child: Switch(
+                  activeColor: Colors.amber,
+                  splashRadius: 50.0,
+                  value: showFarms,
+                  onChanged: (value) => setState(() {
+                    showFarms = value;
+                    setMarkers();
+                  }),
                 ),
-                Transform.scale(
-                  scale: 1.3,
-                  child: Switch(
-                    activeColor: Colors.amber,
-                    splashRadius: 50.0,
-                    value: showFarms,
-                    onChanged: (value) => setState(() {
-                      showFarms = value;
-                      setMarkers();
-                    }),
-                  ),
-                )
-              ],
-            ),
-            Row(
+              )
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
@@ -133,8 +133,8 @@ class _MapPanelState extends State<MapPanel> {
                 )
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       bottomWidget: const SizedBox(height: 50),
     );

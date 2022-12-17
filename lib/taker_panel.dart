@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'base/page_widget.dart';
@@ -10,14 +9,14 @@ class TakerPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageWidget(
-        title: LocaleKeys.taker.tr(),
+        title: LocaleKeys.taker,
         topWidget: Column(
-          children: [
-            const Text(
+          children: const [
+            Text(
               'Saldo twojego konta',
               style: TextStyle(color: Colors.orangeAccent),
             ),
-            const Image(
+            Image(
               image: AssetImage('assets/images/saldo_wykres.png'),
               color: Colors.orangeAccent,
             ),

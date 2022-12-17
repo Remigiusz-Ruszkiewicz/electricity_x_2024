@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:electricity_x_2024/base/page_widget.dart';
 import 'package:electricity_x_2024/customWidgets/custom_card.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +11,7 @@ class MapPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageWidget(
-      title: LocaleKeys.mapPanel.tr(),
+      title: LocaleKeys.mapPanel,
       topWidget: CustomCard(
         content: SizedBox(
           width: 350,

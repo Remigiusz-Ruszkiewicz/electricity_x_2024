@@ -8,6 +8,7 @@ class MapPanel extends StatefulWidget {
   const MapPanel({
     Key? key,
   }) : super(key: key);
+
   @override
   State<MapPanel> createState() => _MapPanelState();
 }
@@ -32,7 +33,9 @@ class _MapPanelState extends State<MapPanel> {
   }
 
   void addCustomIcon() {
-    BitmapDescriptor.fromAssetImage(const ImageConfiguration(), "assets/images/location_fill_grey.png").then(
+    BitmapDescriptor.fromAssetImage(
+            const ImageConfiguration(), "assets/images/location_fill_grey.png")
+        .then(
       (icon) {
         setState(() {
           markerIcon = icon;
@@ -43,7 +46,9 @@ class _MapPanelState extends State<MapPanel> {
   }
 
   void addCustomIcon2() {
-    BitmapDescriptor.fromAssetImage(const ImageConfiguration(), "assets/images/location_fill_grey_red.png").then(
+    BitmapDescriptor.fromAssetImage(const ImageConfiguration(),
+            "assets/images/location_fill_grey_red.png")
+        .then(
       (icon) {
         setState(() {
           marker2Icon = icon;

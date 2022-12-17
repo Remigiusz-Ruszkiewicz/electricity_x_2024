@@ -6,8 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'generated/locale_keys.g.dart';
 
 class MapPanel extends StatefulWidget {
-  const MapPanel({Key? key}) : super(key: key);
-
+  const MapPanel({Key? key,}) : super(key: key);
   @override
   State<MapPanel> createState() => _MapPanelState();
 }
@@ -16,14 +15,44 @@ class _MapPanelState extends State<MapPanel> {
   late bool showChargers;
   late bool showFarms;
   late Set<Marker> markers;
+  BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
+  BitmapDescriptor marker2Icon = BitmapDescriptor.defaultMarker;
 
   @override
   void initState() {
+    addCustomIcon();
+    addCustomIcon2();
     showChargers = true;
     showFarms = true;
     markers = {};
+
     setMarkers();
     super.initState();
+  }
+
+  void addCustomIcon() {
+    BitmapDescriptor.fromAssetImage(
+            const ImageConfiguration(), "assets/images/location_fill_grey.png")
+        .then(
+      (icon) {
+        setState(() {
+          markerIcon = icon;
+          setMarkers();
+        });
+      },
+    );
+  }
+  void addCustomIcon2() {
+    BitmapDescriptor.fromAssetImage(
+            const ImageConfiguration(), "assets/images/location_fill_grey_red.png")
+        .then(
+      (icon) {
+        setState(() {
+          marker2Icon = icon;
+          setMarkers();
+        });
+      },
+    );
   }
 
   @override
@@ -32,7 +61,7 @@ class _MapPanelState extends State<MapPanel> {
       title: LocaleKeys.mapPanel,
       topWidget: CustomCard(
         content: SizedBox(
-          width: 350,
+          width: double.infinity,
           height: 400,
           child: Padding(
             padding: const EdgeInsets.all(15.0),
@@ -66,7 +95,7 @@ class _MapPanelState extends State<MapPanel> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Show farms',
+                  'Pokaż farmy',
                   style: TextStyle(fontSize: 27, color: Colors.amber),
                 ),
                 Transform.scale(
@@ -87,7 +116,7 @@ class _MapPanelState extends State<MapPanel> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Show chargers ',
+                  'Pokaż ładowarki',
                   style: TextStyle(fontSize: 27, color: Colors.amber),
                 ),
                 Transform.scale(
@@ -119,85 +148,118 @@ class _MapPanelState extends State<MapPanel> {
     } else if (!showChargers && showFarms) {
       markers = farmsMarkers();
     } else {
-      markers = {};
+      markers = {
+        const Marker(
+          markerId: MarkerId('TEST10'),
+          position: LatLng(50.068179687218525, 19.94116559466378),
+        ),
+      };
     }
   }
 
   Set<Marker> chargersMarkers() {
     return {
-      const Marker(
-        markerId: MarkerId('TEST'),
-        position: LatLng(50.068279687218525, 19.94116559466378),
+      Marker(
+        markerId: const MarkerId('TEST'),
+        position: const LatLng(50.068279687218525, 19.94116559466378),
+        icon: markerIcon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST1'),
+        position: const LatLng(50.069279687218525, 19.94116559466378),
+        icon: markerIcon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST2'),
+        position: const LatLng(50.070279687218525, 19.94116559466378),
+        icon: markerIcon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST3'),
+        position: const LatLng(50.071279687218525, 19.94116559466378),
+        icon: markerIcon,
       ),
       const Marker(
-        markerId: MarkerId('TEST1'),
-        position: LatLng(50.069279687218525, 19.94116559466378),
-      ),
-      const Marker(
-        markerId: MarkerId('TEST2'),
-        position: LatLng(50.070279687218525, 19.94116559466378),
-      ),
-      const Marker(
-        markerId: MarkerId('TEST3'),
-        position: LatLng(50.071279687218525, 19.94116559466378),
+        markerId: MarkerId('TEST10'),
+        position: LatLng(50.068179687218525, 19.94116559466378),
       ),
     };
   }
 
   Set<Marker> combinedMarkers() {
     return {
-      const Marker(
-        markerId: MarkerId('TEST'),
-        position: LatLng(50.068279687218525, 19.94116559466378),
+      Marker(
+        markerId: const MarkerId('TEST'),
+        position: const LatLng(50.068279687218525, 19.94116559466378),
+        icon: markerIcon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST1'),
+        position: const LatLng(50.069279687218525, 19.94116559466378),
+        icon: markerIcon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST2'),
+        position: const LatLng(50.070279687218525, 19.94116559466378),
+        icon: markerIcon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST3'),
+        position: const LatLng(50.071279687218525, 19.94116559466378),
+        icon: markerIcon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST4'),
+        position: const LatLng(50.068279687218525, 19.94516559466378),
+        icon: marker2Icon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST5'),
+        position: const LatLng(50.069279687218525, 19.94416559466378),
+        icon: marker2Icon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST6'),
+        position: const LatLng(50.070279687218525, 19.94316559466378),
+        icon: marker2Icon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST7'),
+        position: const LatLng(50.071279687218525, 19.94216559466378),
+        icon: marker2Icon,
       ),
       const Marker(
-        markerId: MarkerId('TEST1'),
-        position: LatLng(50.069279687218525, 19.94116559466378),
-      ),
-      const Marker(
-        markerId: MarkerId('TEST2'),
-        position: LatLng(50.070279687218525, 19.94116559466378),
-      ),
-      const Marker(
-        markerId: MarkerId('TEST3'),
-        position: LatLng(50.071279687218525, 19.94116559466378),
-      ),
-      const Marker(
-        markerId: MarkerId('TEST4'),
-        position: LatLng(50.068279687218525, 19.94516559466378),
-      ),
-      const Marker(
-        markerId: MarkerId('TEST5'),
-        position: LatLng(50.069279687218525, 19.94416559466378),
-      ),
-      const Marker(
-        markerId: MarkerId('TEST6'),
-        position: LatLng(50.070279687218525, 19.94316559466378),
-      ),
-      const Marker(
-        markerId: MarkerId('TEST7'),
-        position: LatLng(50.071279687218525, 19.94216559466378),
+        markerId: MarkerId('TEST10'),
+        position: LatLng(50.068179687218525, 19.94116559466378),
       ),
     };
   }
 
   Set<Marker> farmsMarkers() {
     return {
-      const Marker(
-        markerId: MarkerId('TEST4'),
-        position: LatLng(50.068279687218525, 19.94516559466378),
+      Marker(
+        markerId: const MarkerId('TEST4'),
+        position: const LatLng(50.068279687218525, 19.94516559466378),
+        icon: marker2Icon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST5'),
+        position: const LatLng(50.069279687218525, 19.94416559466378),
+        icon: marker2Icon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST6'),
+        position: const LatLng(50.070279687218525, 19.94316559466378),
+        icon: marker2Icon,
+      ),
+      Marker(
+        markerId: const MarkerId('TEST7'),
+        position: const LatLng(50.071279687218525, 19.94216559466378),
+        icon: marker2Icon,
       ),
       const Marker(
-        markerId: MarkerId('TEST5'),
-        position: LatLng(50.069279687218525, 19.94416559466378),
-      ),
-      const Marker(
-        markerId: MarkerId('TEST6'),
-        position: LatLng(50.070279687218525, 19.94316559466378),
-      ),
-      const Marker(
-        markerId: MarkerId('TEST7'),
-        position: LatLng(50.071279687218525, 19.94216559466378),
+        markerId: MarkerId('TEST10'),
+        position: LatLng(50.068179687218525, 19.94116559466378),
       ),
     };
   }

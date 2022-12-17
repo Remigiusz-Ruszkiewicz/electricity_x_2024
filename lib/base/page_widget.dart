@@ -67,8 +67,15 @@ class PageWidget extends StatelessWidget {
                       padding: enableSideTopPadding ? const EdgeInsets.symmetric(horizontal: 16) : EdgeInsets.zero,
                       child: topWidget,
                     ),
-                    if (midWidget != null) DividerWithChild(midWidget!),
-                    if (bottomWidget != null) DividerWithChild(bottomWidget!),
+                    if (midWidget != null)
+                      DividerWithChild(Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: midWidget!,
+                      )),
+                    if (bottomWidget != null) DividerWithChild(Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: bottomWidget!,
+                    )),
                   ],
                 ),
               ),

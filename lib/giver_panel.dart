@@ -34,20 +34,25 @@ class GiverPanel extends StatelessWidget {
       ),
       midWidget: Column(
         children: [
-          getCard('W tym tygodniu wyprodukowałeś 23232kWh eko energii!'),
+          getCard(
+            'W tym tygodniu wyprodukowałeś 23232kWh eko energii!',
+            color: const Color.fromRGBO(33, 150, 243, .2),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                  child: getCard('Odsprzedałeś 456kWh',
-                    color: const Color.fromRGBO(33, 150, 243, .6),
+                  child: getCard(
+                    'Odsprzedałeś 456kWh',
+                    color: const Color.fromRGBO(33, 150, 243, .2),
                   ),
                 ),
                 Expanded(
-                  child: getCard('Zarobiłeś 1111zł',
-                    color: const Color.fromRGBO(33, 150, 243, .6),
+                  child: getCard(
+                    'Zarobiłeś 1111zł',
+                    color: const Color.fromRGBO(33, 150, 243, .2),
                   ),
                 ),
               ],

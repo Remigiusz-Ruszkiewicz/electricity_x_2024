@@ -54,6 +54,7 @@ class _RegisterViewState extends State<RegisterView> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
+                      cursorColor: const Color.fromRGBO(0, 192, 75, .2),
                       decoration: InputDecoration(
                           focusedBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
@@ -80,6 +81,7 @@ class _RegisterViewState extends State<RegisterView> {
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
                     child: TextFormField(
+                      cursorColor: const Color.fromRGBO(0, 192, 75, .2),
                       obscureText: !_passwordVisible,
                       enableSuggestions: false,
                       autocorrect: false,
@@ -119,6 +121,7 @@ class _RegisterViewState extends State<RegisterView> {
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
                     child: TextFormField(
+                      cursorColor: const Color.fromRGBO(0, 192, 75, .2),
                       obscureText: !_passwordVisible,
                       enableSuggestions: false,
                       autocorrect: false,

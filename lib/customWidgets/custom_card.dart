@@ -5,9 +5,11 @@ class CustomCard extends StatelessWidget {
     this.color,
     required this.content,
     Key? key,
+    this.opacityColor,
   }) : super(key: key);
 
   final Color? color;
+  final Color? opacityColor;
   final Widget content;
 
   @override
@@ -17,7 +19,7 @@ class CustomCard extends StatelessWidget {
       elevation: 0,
       shape: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
-        borderSide: const BorderSide(color: Color.fromRGBO(0, 192, 75, .2)),
+        borderSide: BorderSide(color: opacityColor ?? const Color.fromRGBO(0, 192, 75, .0)),
       ),
       child: content,
     );

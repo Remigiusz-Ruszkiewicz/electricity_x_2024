@@ -1,12 +1,13 @@
 import 'package:electricity_x_2024/base/page_widget.dart';
-import 'package:electricity_x_2024/customWidgets/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'generated/locale_keys.g.dart';
 
 class MapPanel extends StatefulWidget {
-  const MapPanel({Key? key,}) : super(key: key);
+  const MapPanel({
+    Key? key,
+  }) : super(key: key);
   @override
   State<MapPanel> createState() => _MapPanelState();
 }
@@ -31,9 +32,7 @@ class _MapPanelState extends State<MapPanel> {
   }
 
   void addCustomIcon() {
-    BitmapDescriptor.fromAssetImage(
-            const ImageConfiguration(), "assets/images/location_fill_grey.png")
-        .then(
+    BitmapDescriptor.fromAssetImage(const ImageConfiguration(), "assets/images/location_fill_grey.png").then(
       (icon) {
         setState(() {
           markerIcon = icon;
@@ -42,10 +41,9 @@ class _MapPanelState extends State<MapPanel> {
       },
     );
   }
+
   void addCustomIcon2() {
-    BitmapDescriptor.fromAssetImage(
-            const ImageConfiguration(), "assets/images/location_fill_grey_red.png")
-        .then(
+    BitmapDescriptor.fromAssetImage(const ImageConfiguration(), "assets/images/location_fill_grey_red.png").then(
       (icon) {
         setState(() {
           marker2Icon = icon;
@@ -59,30 +57,18 @@ class _MapPanelState extends State<MapPanel> {
   Widget build(BuildContext context) {
     return PageWidget(
       title: LocaleKeys.mapPanel,
-      topWidget: CustomCard(
-        content: SizedBox(
-          width: double.infinity,
-          height: 400,
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+      topWidget: SizedBox(
+        width: double.infinity,
+        height: 400,
+        child: Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: GoogleMap(
+                initialCameraPosition: const CameraPosition(
+                  target: LatLng(50.068179687218525, 19.94116559466378),
+                  zoom: 14,
                 ),
-                child: Center(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: GoogleMap(
-                        initialCameraPosition: const CameraPosition(
-                          target: LatLng(50.068179687218525, 19.94116559466378),
-                          zoom: 14,
-                        ),
-                        markers: markers),
-                  ),
-                ),
-              ),
-            ),
+                markers: markers),
           ),
         ),
       ),

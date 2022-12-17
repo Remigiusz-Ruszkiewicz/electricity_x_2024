@@ -30,9 +30,10 @@ class MainMenuView extends StatelessWidget {
       midWidget: NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (OverscrollIndicatorNotification overscroll) {
           overscroll.disallowIndicator();
-          return true;
+          return false;
         },
         child: ListView.builder(
+          primary: false,
           shrinkWrap: true,
           itemCount: widgetList.length,
           itemBuilder: (context, index) {
@@ -56,6 +57,10 @@ class MainMenuView extends StatelessWidget {
         const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
         const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
         const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
+        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
+        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
+        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
+        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
         const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!')
       ];
 }
@@ -66,17 +71,7 @@ class _MiddleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomCard(
-      color: const Color.fromRGBO(100, 255, 110, .3),
-      content: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 24),
-        ),
-      ),
-    );
+    return getCard(text);
   }
 }
 

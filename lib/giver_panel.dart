@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'base/page_widget.dart';
+import 'customWidgets/custom_card.dart';
 import 'generated/locale_keys.g.dart';
 
 class GiverPanel extends StatelessWidget {
@@ -16,20 +17,16 @@ class GiverPanel extends StatelessWidget {
         width: 300,
         height: 200,
       ),
-      midWidget: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
-          Text('data1'),
-          Text('data2'),
-          Text('data3'),
-        ],
-      ),
+      midWidget: getCard('W tym tygodniu wyprodukowałeś 23232kWh eko energii!'),
       bottomWidget: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
-          Text('data1'),
-          Text('data2'),
-          Text('data3'),
+        children: [
+          Expanded(
+            child: getCard('Odsprzedałeś 456kWh'),
+          ),
+          Expanded(
+            child: getCard('Zarobiłeś 1111zł'),
+          ),
         ],
       ),
     );

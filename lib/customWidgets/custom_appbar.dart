@@ -16,14 +16,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       flexibleSpace: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-              colors: [
-                Color.fromRGBO(9, 153, 21, 1),
-                Color.fromRGBO(63, 62, 62, 1),
-              ],
-              begin: FractionalOffset(0.0, 0.0),
-              end: FractionalOffset(0.0, 1.0),
-              stops: [0.0, 1.0],
-              tileMode: TileMode.clamp),
+            colors: [
+              Color.fromRGBO(0, 192, 75, .8),
+              Color.fromRGBO(0, 192, 75, .7),
+              Color.fromRGBO(0, 180, 75, .5),
+              Color.fromRGBO(0, 145, 75, .3),
+              Color.fromRGBO(0, 120, 75, .2),
+            ],
+            begin: FractionalOffset(0.0, 0.0),
+            end: FractionalOffset(0.0, 1.0),
+            stops: [0.0, .20, .50, .80, 1],
+            tileMode: TileMode.clamp,
+          ),
         ),
       ),
       toolbarHeight: 70,
@@ -34,27 +38,30 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleSpacing: 0,
       leadingWidth: 70,
       leading: const Padding(
-        padding:  EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0),
         child: SizedBox(
           height: 48,
           width: 48,
-          child:  Image(image: AssetImage('assets/images/logo.png')),
+          child: Image(image: AssetImage('assets/images/logo.png')),
         ),
       ),
       actions: settingVisible
           ? [
-              IconButton(
-                alignment: Alignment.center,
-                onPressed: () => {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const LoginView(),
-                    ),
-                  )
-                },
-                color: Colors.white,
-                icon: const Icon(Icons.logout),
+              Padding(
+                padding: const EdgeInsets.only(right: 5),
+                child: IconButton(
+                  alignment: Alignment.center,
+                  onPressed: () => {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const LoginView(),
+                      ),
+                    )
+                  },
+                  color: Colors.white,
+                  icon: const Icon(Icons.logout),
+                ),
               ),
             ]
           : null,

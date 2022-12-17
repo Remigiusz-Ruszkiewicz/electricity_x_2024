@@ -13,8 +13,6 @@ class IntermediatesPanel extends StatelessWidget {
     return PageWidget(
       title: LocaleKeys.intermediates.tr(),
       topWidget: const ProductCard(),
-      midWidget: null,
-      bottomWidget: null,
     );
   }
 }

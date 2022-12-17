@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +13,23 @@ class GiverPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageWidget(
       title: LocaleKeys.giver.tr(),
-      topWidget: Container(
-        color: Colors.amber,
-        width: 300,
-        height: 200,
+      enableSideTopPadding: false,
+      topWidget: Align(
+        alignment: Alignment.topCenter,
+        child: CarouselSlider(
+          items: const [
+            Image(image: AssetImage('assets/images/energy_income.png')),
+            Image(image: AssetImage('assets/images/energy_outcome.png')),
+          ],
+          options: CarouselOptions(
+              height: 250.0,
+              aspectRatio: 16 / 9,
+              viewportFraction: 0.80,
+              enlargeCenterPage: true,
+              pageSnapping: true,
+              enableInfiniteScroll: false,
+              onPageChanged: (index, reason) {}),
+        ),
       ),
       midWidget: getCard('W tym tygodniu wyprodukowałeś 23232kWh eko energii!'),
       bottomWidget: Row(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'custom/custom_sizes.dart';
+
 import 'custom/custom_colors.dart';
+import 'custom/custom_sizes.dart';
 import 'custom/custom_text_styles.dart';
 
 extension ThemeDataExtensions on ThemeData {

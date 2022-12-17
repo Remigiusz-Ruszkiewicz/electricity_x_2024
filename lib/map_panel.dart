@@ -57,69 +57,72 @@ class _MapPanelState extends State<MapPanel> {
           ),
         ),
       ),
-      midWidget: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'Show farms',
-                style: TextStyle(fontSize: 27, color: Colors.amber),
-              ),
-              Transform.scale(
-                scale: 1.3,
-                child: Switch(
-                  activeColor: Colors.amber,
-                  splashRadius: 50.0,
-                  value: showFarms,
-                  onChanged: (value) => setState(() {
-                    showFarms = value;
-                    setMarkers();
-                  }),
+      midWidget: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Show farms',
+                  style: TextStyle(fontSize: 27, color: Colors.amber),
                 ),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'Show chargers ',
-                style: TextStyle(fontSize: 27, color: Colors.amber),
-              ),
-              Transform.scale(
-                scale: 1.3,
-                child: Switch(
-                  activeColor: Colors.amber,
-                  splashRadius: 50.0,
-                  value: showChargers,
-                  onChanged: (value) => setState(() {
-                    showChargers = value;
-                    setMarkers();
-                  }),
+                Transform.scale(
+                  scale: 1.3,
+                  child: Switch(
+                    activeColor: Colors.amber,
+                    splashRadius: 50.0,
+                    value: showFarms,
+                    onChanged: (value) => setState(() {
+                      showFarms = value;
+                      setMarkers();
+                    }),
+                  ),
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Show chargers ',
+                  style: TextStyle(fontSize: 27, color: Colors.amber),
                 ),
-              )
-            ],
-          ),
-        ],
+                Transform.scale(
+                  scale: 1.3,
+                  child: Switch(
+                    activeColor: Colors.amber,
+                    splashRadius: 50.0,
+                    value: showChargers,
+                    onChanged: (value) => setState(() {
+                      showChargers = value;
+                      setMarkers();
+                    }),
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
+      bottomWidget: const SizedBox(height: 50),
     );
   }
-  void setMarkers(){
-    if(showChargers&&showFarms){
+
+  void setMarkers() {
+    if (showChargers && showFarms) {
       markers = combinedMarkers();
-    }
-    else if (showChargers&&!showFarms){
+    } else if (showChargers && !showFarms) {
       markers = chargersMarkers();
-    }
-    else if (!showChargers&&showFarms){
+    } else if (!showChargers && showFarms) {
       markers = farmsMarkers();
-    }
-    else{
+    } else {
       markers = {};
     }
   }
+
   Set<Marker> chargersMarkers() {
     return {
       const Marker(

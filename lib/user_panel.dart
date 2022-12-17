@@ -10,7 +10,7 @@ class UserPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageWidget(
-      title: LocaleKeys.userPanel.tr(),
+      title: LocaleKeys.intermediates.tr(),
       topWidget: Container(
         color: Colors.amber,
         width: 300,

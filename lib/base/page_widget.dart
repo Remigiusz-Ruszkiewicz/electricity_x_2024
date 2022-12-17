@@ -159,7 +159,7 @@ class PageWidget extends StatelessWidget {
   SpeedDialChild _getFixedChild(
     BuildContext context, {
     required Widget icon,
-    required final Color? backgroundColor,
+    required Color? backgroundColor,
     required final Color? foregroundColor,
     required String label,
     required Widget targetView,
@@ -169,7 +169,11 @@ class PageWidget extends StatelessWidget {
       label = LocaleKeys.mainMenu.tr();
       icon = const Icon(Icons.home);
     }
-
+    switch(targetView.runtimeType){
+      case TakerPanel:
+        backgroundColor = Colors.orangeAccent;
+        break;
+    }
     return SpeedDialChild(
       child: icon,
       backgroundColor: backgroundColor,

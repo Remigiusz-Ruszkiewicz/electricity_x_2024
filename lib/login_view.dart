@@ -41,13 +41,13 @@ class _LoginViewState extends State<LoginView> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(height: 50,),
-                  Text(
+                  const SizedBox(height: 50,),
+                  const Text(
                     'TU BĘDZIE NAZWA',
-                    style: const TextStyle(color: Colors.white, fontSize: 30),
+                    style: TextStyle(color: Colors.white, fontSize: 30),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 250,),
+                  const SizedBox(height: 250,),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
@@ -61,11 +61,11 @@ class _LoginViewState extends State<LoginView> {
                             ),
                           ),
                           hintText: 'E-Mail',
-                          prefixIcon: Icon(Icons.person),
+                          prefixIcon: const Icon(Icons.person),
                           constraints: const BoxConstraints(maxWidth: 400)),
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
                   Padding(
                     padding: const EdgeInsets.only(
                         left: 15.0, right: 15.0, top: 15, bottom: 15),
@@ -85,7 +85,7 @@ class _LoginViewState extends State<LoginView> {
                             ),
                           ),
                           hintText: 'Hasło',
-                          prefixIcon: Icon(Icons.lock),
+                          prefixIcon: const Icon(Icons.lock),
                           constraints: const BoxConstraints(maxWidth: 400),
                           suffixIcon: IconButton(
                             onPressed: () => {
@@ -102,7 +102,12 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 100,),
+                  const SizedBox(height: 50,),
+                  const Divider(
+                    thickness: 2,
+                    color: Colors.green,
+                  ),
+                  const SizedBox(height: 50,),
                   Container(
                     height: 50,
                     width: 250,

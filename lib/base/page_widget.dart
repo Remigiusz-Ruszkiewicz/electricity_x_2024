@@ -83,7 +83,7 @@ class PageWidget extends StatelessWidget {
           _getFixedChild(
             context,
             icon: SvgPicture.asset(
-              'assets/images/account_circle.svg',
+              'assets/images/contact_mail.svg',
               color: Colors.white,
               width: 25,
               height: 25,

@@ -75,7 +75,12 @@ class PageWidget extends StatelessWidget {
         children: [
           _getFixedChild(
             context,
-            icon: const Icon(Icons.accessibility),
+            icon: SvgPicture.asset(
+              'assets/images/account_circle.svg',
+              color: Colors.white,
+              width: 25,
+              height: 25,
+            ),
             backgroundColor: Colors.green,
             foregroundColor: Colors.white,
             label: LocaleKeys.intermediates.tr(),

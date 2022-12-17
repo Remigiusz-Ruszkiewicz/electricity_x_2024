@@ -65,7 +65,7 @@ class _MiddleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return getCard(text);
+    return getCard(text, color: const Color.fromRGBO(0, 192, 75, .6));
   }
 }
 

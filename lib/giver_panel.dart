@@ -37,10 +37,16 @@ class GiverPanel extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
-            child: getCard('Odsprzedałeś 456kWh'),
+            child: getCard(
+              'Odsprzedałeś 456kWh',
+              color: const Color.fromRGBO(33, 150, 243, .6),
+            ),
           ),
           Expanded(
-            child: getCard('Zarobiłeś 1111zł'),
+            child: getCard(
+              'Zarobiłeś 1111zł',
+              color: const Color.fromRGBO(33, 150, 243, .6),
+            ),
           ),
         ],
       ),

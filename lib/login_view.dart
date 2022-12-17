@@ -55,12 +55,18 @@ class _LoginViewState extends State<LoginView> {
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
                       decoration: InputDecoration(
+                          focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 3,
+                              color: Color.fromRGBO(0, 192, 75, .9),
+                            ),
+                          ),
                           filled: true,
                           fillColor: Colors.black12.withOpacity(0.1),
                           enabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
                               width: 1,
-                              color: Colors.green, //.fromRGBO(54, 53, 53, 1),
+                              color: Color.fromRGBO(0, 192, 75, .6),
                             ),
                           ),
                           hintText: 'E-Mail',
@@ -71,35 +77,39 @@ class _LoginViewState extends State<LoginView> {
                   const SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
-                    child: Container(
-                      child: TextFormField(
-                        obscureText: !_passwordVisible,
-                        enableSuggestions: false,
-                        autocorrect: false,
-                        obscuringCharacter: "*",
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.black12.withOpacity(0.1),
-                          enabledBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 1,
-                              color: Colors.green,
+                    child: TextFormField(
+                      obscureText: !_passwordVisible,
+                      enableSuggestions: false,
+                      autocorrect: false,
+                      obscuringCharacter: "*",
+                      decoration: InputDecoration(
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 3,
+                            color: Color.fromRGBO(0, 192, 75, .9),
+                          ),
+                        ),
+                        filled: true,
+                        fillColor: Colors.black12.withOpacity(0.1),
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 1,
+                            color: Color.fromRGBO(0, 192, 75, .6),
+                          ),
+                        ),
+                        hintText: 'Hasło',
+                        prefixIcon: const Icon(Icons.lock),
+                        constraints: const BoxConstraints(maxWidth: 400),
+                        suffixIcon: IconButton(
+                          onPressed: () => {
+                            setState(
+                              () {
+                                _passwordVisible = !_passwordVisible;
+                              },
                             ),
-                          ),
-                          hintText: 'Hasło',
-                          prefixIcon: const Icon(Icons.lock),
-                          constraints: const BoxConstraints(maxWidth: 400),
-                          suffixIcon: IconButton(
-                            onPressed: () => {
-                              setState(
-                                () {
-                                  _passwordVisible = !_passwordVisible;
-                                },
-                              ),
-                            },
-                            color: Colors.green,
-                            icon: const Icon(Icons.remove_red_eye_outlined),
-                          ),
+                          },
+                          color: const Color.fromRGBO(0, 192, 75, .6),
+                          icon: const Icon(Icons.remove_red_eye_outlined),
                         ),
                       ),
                     ),
@@ -109,7 +119,7 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   const Divider(
                     thickness: 2,
-                    color: Colors.green,
+                    color: Color.fromRGBO(0, 192, 75, .9),
                   ),
                   const SizedBox(
                     height: 50,
@@ -118,7 +128,7 @@ class _LoginViewState extends State<LoginView> {
                     height: 50,
                     width: 250,
                     decoration: BoxDecoration(
-                      color: Colors.green,
+                      color: Color.fromRGBO(0, 192, 75, .6),
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: MaterialButton(

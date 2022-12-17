@@ -71,17 +71,7 @@ class _MiddleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomCard(
-      color: const Color.fromRGBO(0, 192, 75, .3),
-      content: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 24),
-        ),
-      ),
-    );
+    return getCard(text);
   }
 }
 

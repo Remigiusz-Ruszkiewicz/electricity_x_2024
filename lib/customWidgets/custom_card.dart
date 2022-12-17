@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
-    this.color = const Color.fromRGBO(100, 255, 110, .3),
+    this.color = const Color.fromRGBO(0, 192, 75, .3),
     required this.content,
     Key? key,
   }) : super(key: key);
@@ -37,7 +37,7 @@ Widget getCard(String text) {
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 24,
             ),
           ),
         ),

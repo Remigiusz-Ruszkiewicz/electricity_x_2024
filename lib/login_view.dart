@@ -40,15 +40,18 @@ class _LoginViewState extends State<LoginView> {
             child: Padding(
               padding: const EdgeInsets.all(35.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  //const SizedBox(height: 50),
-                  const Text(
-                    'TU BĘDZIE NAZWA',
-                    style: TextStyle(color: Colors.white, fontSize: 30),
-                    textAlign: TextAlign.center,
+                  const Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      'TU BĘDZIE NAZWA',
+                      style: TextStyle(color: Colors.white, fontSize: 30),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                  //const Spacer(),
+                  const Spacer(),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
@@ -72,9 +75,8 @@ class _LoginViewState extends State<LoginView> {
                           constraints: const BoxConstraints(maxWidth: 400)),
                     ),
                   ),
-                  //const SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
+                    padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 0),
                     child: TextFormField(
                       obscureText: !_passwordVisible,
                       enableSuggestions: false,
@@ -112,15 +114,12 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  const Divider(
-                    thickness: 2,
-                    color: Color.fromRGBO(0, 192, 75, .9),
-                  ),
-                  const SizedBox(
-                    height: 50,
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                    child: Divider(
+                      thickness: 2,
+                      color: Color.fromRGBO(0, 192, 75, .9),
+                    ),
                   ),
                   Container(
                     height: 50,
@@ -142,22 +141,24 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ),
                   ),
-                  const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-                  Container(
-                    height: 50,
-                    width: 250,
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: MaterialButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const RegisterView()));
-                      },
-                      child: Text(
-                        LocaleKeys.Register.tr(),
-                        style: const TextStyle(color: Colors.white, fontSize: 16),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Container(
+                      height: 50,
+                      width: 250,
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: MaterialButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const RegisterView()));
+                        },
+                        child: Text(
+                          LocaleKeys.Register.tr(),
+                          style: const TextStyle(color: Colors.white, fontSize: 16),
+                        ),
                       ),
                     ),
                   ),

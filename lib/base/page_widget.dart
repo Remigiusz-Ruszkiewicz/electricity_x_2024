@@ -7,6 +7,7 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../customWidgets/custom_appbar.dart';
+import '../customWidgets/divider_with_child.dart';
 import '../generated/locale_keys.g.dart';
 import '../giver_panel.dart';
 import '../taker_panel.dart';
@@ -61,18 +62,8 @@ class PageWidget extends StatelessWidget {
                       padding: enableSideTopPadding ? const EdgeInsets.symmetric(horizontal: 16) : EdgeInsets.zero,
                       child: topWidget,
                     ),
-                    if (midWidget != null) const Divider(thickness: 1),
-                    if (midWidget != null)
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
-                        child: midWidget,
-                      ),
-                    if (bottomWidget != null) const Divider(thickness: 1),
-                    if (bottomWidget != null)
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: bottomWidget!,
-                      ),
+                    if (midWidget != null) DividerWithChild(midWidget!),
+                    if (bottomWidget != null) DividerWithChild(bottomWidget!),
                   ],
                 ),
               ),
@@ -157,7 +148,7 @@ class PageWidget extends StatelessWidget {
   SpeedDialChild _getFixedChild(
     BuildContext context, {
     required Widget icon,
-    required final Color? backgroundColor,
+    required Color? backgroundColor,
     required final Color? foregroundColor,
     required String label,
     required Widget targetView,
@@ -167,7 +158,11 @@ class PageWidget extends StatelessWidget {
       label = LocaleKeys.mainMenu.tr();
       icon = const Icon(Icons.home);
     }
-
+    switch (targetView.runtimeType) {
+      case TakerPanel:
+        backgroundColor = Colors.orangeAccent;
+        break;
+    }
     return SpeedDialChild(
       child: icon,
       backgroundColor: backgroundColor,

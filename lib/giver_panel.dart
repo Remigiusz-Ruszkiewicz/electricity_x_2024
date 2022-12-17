@@ -22,6 +22,7 @@ class GiverPanel extends StatelessWidget {
             Image(image: AssetImage('assets/images/energy_outcome.png')),
           ],
           options: CarouselOptions(
+            autoPlay: true,
             height: 250.0,
             aspectRatio: 16 / 9,
             viewportFraction: 0.80,

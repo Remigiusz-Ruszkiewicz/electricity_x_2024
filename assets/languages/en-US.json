@@ -213,5 +213,6 @@
   "mainMenu": "Main Menu",
   "giver": "Giver",
   "taker": "Taker",
-  "intermediates": "Intermediaries"
+  "intermediates": "Intermediaries",
+  "mapPanel": "Maps"
 }

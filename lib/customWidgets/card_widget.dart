@@ -67,7 +67,7 @@ class _ProductCardState extends State<ProductCard> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(32.0))),
                           contentPadding: const EdgeInsets.only(top: 10.0),
-                          content: Container(
+                          content: SizedBox(
                             width: 300.0,
                             height: 200,
                             child: Column(

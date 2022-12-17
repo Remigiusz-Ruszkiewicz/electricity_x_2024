@@ -25,10 +25,11 @@ class _LoginViewState extends State<LoginView> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              alignment: Alignment.topCenter,
-              image: AssetImage("assets/images/logo.png"),
-              fit: BoxFit.cover,
-              opacity: 0.1),
+            alignment: Alignment.topCenter,
+            image: AssetImage("assets/images/logo.png"),
+            fit: BoxFit.cover,
+            opacity: 0.1,
+          ),
         ),
         child: GestureDetector(
           onTap: () {
@@ -41,13 +42,17 @@ class _LoginViewState extends State<LoginView> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(height: 50,),
+                  SizedBox(
+                    height: 50,
+                  ),
                   Text(
                     'TU BĘDZIE NAZWA',
                     style: const TextStyle(color: Colors.white, fontSize: 30),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 250,),
+                  SizedBox(
+                    height: 250,
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
@@ -65,10 +70,11 @@ class _LoginViewState extends State<LoginView> {
                           constraints: const BoxConstraints(maxWidth: 400)),
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Padding(
-                    padding: const EdgeInsets.only(
-                        left: 15.0, right: 15.0, top: 15, bottom: 15),
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
                     child: Container(
                       child: TextFormField(
                         obscureText: !_passwordVisible,
@@ -102,7 +108,9 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 100,),
+                  SizedBox(
+                    height: 100,
+                  ),
                   Container(
                     height: 50,
                     width: 250,
@@ -119,8 +127,7 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       child: Text(
                         LocaleKeys.Login.tr(),
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 16),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
                   ),
@@ -129,23 +136,17 @@ class _LoginViewState extends State<LoginView> {
                     height: 50,
                     width: 250,
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 2,
-                          color: const Color.fromRGBO(117, 117, 117, 1)),
+                      border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: MaterialButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const RegisterView()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const RegisterView()));
                       },
                       child: Text(
                         LocaleKeys.Register.tr(),
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 16),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
                   ),

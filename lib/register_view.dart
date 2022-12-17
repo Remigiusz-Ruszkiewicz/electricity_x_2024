@@ -18,189 +18,158 @@ class _RegisterViewState extends State<RegisterView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: null,
-      body: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).requestFocus(FocusNode());
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(35.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 120,
-                      width: 120,
-                      child: Card(
-                        semanticContainer: true,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        elevation: 5,
-                        margin: const EdgeInsets.all(10),
-                        child: const Image(image: AssetImage('assets/images/logo.png')),
-                      ),
-                    ),
-                  ],
-                ),
-                const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-                Text(
-                  LocaleKeys.RegisterTitle.tr(),
-                  style: const TextStyle(color: Colors.white, fontSize: 30),
-                  textAlign: TextAlign.center,
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 30, bottom: 15),
-                      child: Text(
-                        LocaleKeys.Email.tr(),
-                        style: const TextStyle(
-                          color: Color.fromRGBO(186, 186, 186, 1),
-                          fontSize: 13,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: TextField(
-                    decoration: const InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          width: 2,
-                          color: Color.fromRGBO(54, 53, 53, 1),
-                        ),
-                      ),
-                    ),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            alignment: Alignment.topCenter,
+            image: AssetImage("assets/images/logo.png"),
+            fit: BoxFit.cover,
+            opacity: 0.1,
+          ),
+        ),
+        child: GestureDetector(
+          onTap: () {
+            FocusScope.of(context).requestFocus(FocusNode());
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(35.0),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const SizedBox(
+                    height: 50,
                   ),
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
-                      child: Text(
-                        LocaleKeys.Password.tr(),
-                        style: const TextStyle(
-                          color: Color.fromRGBO(186, 186, 186, 1),
-                          fontSize: 13,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
-                  //padding: EdgeInsets.symmetric(horizontal: 15),
-                  child: TextField(
-                    obscureText: !_passwordVisible,
-                    enableSuggestions: false,
-                    autocorrect: false,
-                    obscuringCharacter: "*",
-                    decoration: InputDecoration(
-                      enabledBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          width: 2,
-                          color: Color.fromRGBO(54, 53, 53, 1),
-                        ),
-                      ),
-                      suffixIcon: IconButton(
-                        onPressed: () => {
-                          setState(
-                            () {
-                              _passwordVisible = !_passwordVisible;
-                            },
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  ),
+                  const Text(
+                    'TU BĘDZIE NAZWA',
+                    style: TextStyle(color: Colors.white, fontSize: 30),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(
+                    height: 150,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.black12.withOpacity(0.1),
+                          enabledBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 1,
+                              color: Colors.green, //.fromRGBO(54, 53, 53, 1),
+                            ),
                           ),
-                        },
-                        color: Colors.blue,
-                        icon: const Icon(Icons.remove_red_eye_outlined),
-                      ),
+                          hintText: 'E-Mail',
+                          prefixIcon: const Icon(Icons.person),
+                          constraints: const BoxConstraints(maxWidth: 400)),
                     ),
                   ),
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
-                      child: Text(
-                        LocaleKeys.ConfirmPassword.tr(),
-                        style: const TextStyle(
-                          color: Color.fromRGBO(186, 186, 186, 1),
-                          fontSize: 13,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
-                  child: TextField(
-                    obscureText: !_passwordVisible,
-                    enableSuggestions: false,
-                    autocorrect: false,
-                    obscuringCharacter: "*",
-                    decoration: InputDecoration(
-                      enabledBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          width: 2,
-                          color: Color.fromRGBO(54, 53, 53, 1),
-                        ),
-                      ),
-                      suffixIcon: IconButton(
-                        onPressed: () => {
-                          setState(
-                            () {
-                              _passwordVisible = !_passwordVisible;
-                            },
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
+                    child: Container(
+                      child: TextFormField(
+                        obscureText: !_passwordVisible,
+                        enableSuggestions: false,
+                        autocorrect: false,
+                        obscuringCharacter: "*",
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.black12.withOpacity(0.1),
+                          enabledBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 1,
+                              color: Colors.green,
+                            ),
                           ),
-                        },
-                        color: Colors.blue,
-                        icon: const Icon(Icons.remove_red_eye_outlined),
+                          hintText: 'Hasło',
+                          prefixIcon: const Icon(Icons.lock),
+                          constraints: const BoxConstraints(maxWidth: 400),
+                          suffixIcon: IconButton(
+                            onPressed: () => {
+                              setState(
+                                () {
+                                  _passwordVisible = !_passwordVisible;
+                                },
+                              ),
+                            },
+                            color: Colors.green,
+                            icon: const Icon(Icons.remove_red_eye_outlined),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const Padding(padding: EdgeInsets.fromLTRB(0, 50, 0, 10)),
-                Container(
-                  height: 50,
-                  width: 250,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: MaterialButton(
-                    onPressed: () {},
-                    child: Text(
-                      LocaleKeys.Register.tr(),
-                      style: const TextStyle(color: Colors.white, fontSize: 16),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
+                    child: TextFormField(
+                      obscureText: !_passwordVisible,
+                      enableSuggestions: false,
+                      autocorrect: false,
+                      obscuringCharacter: "*",
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.black12.withOpacity(0.1),
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 1,
+                            color: Colors.green,
+                          ),
+                        ),
+                        hintText: 'Potwierdź hasło',
+                        prefixIcon: const Icon(Icons.lock),
+                        constraints: const BoxConstraints(maxWidth: 400),
+                        suffixIcon: IconButton(
+                          onPressed: () => setState(() => _passwordVisible = !_passwordVisible),
+                          color: Colors.green,
+                          icon: const Icon(Icons.remove_red_eye_outlined),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-                const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-                Container(
-                  height: 50,
-                  width: 250,
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
-                    color: Colors.transparent,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: MaterialButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginView()));
-                    },
-                    child: Text(
-                      LocaleKeys.BackToLogin.tr(),
-                      style: const TextStyle(color: Colors.white, fontSize: 16),
+                  const Padding(padding: EdgeInsets.fromLTRB(0, 50, 0, 10)),
+                  Container(
+                    height: 50,
+                    width: 250,
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: MaterialButton(
+                      onPressed: () {},
+                      child: Text(
+                        LocaleKeys.Register.tr(),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                  const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
+                  Container(
+                    height: 50,
+                    width: 250,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: MaterialButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginView()));
+                      },
+                      child: Text(
+                        LocaleKeys.BackToLogin.tr(),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -33,26 +33,20 @@ class _LoginViewState extends State<LoginView> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 120,
-                        width: 120,
-                        child: Card(
-                          semanticContainer: true,
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          elevation: 5,
-                          color: Colors.grey,
-                          margin: const EdgeInsets.all(10),
-                          child: const Image(image: AssetImage('assets/images/ratmon_icon.png')),
-                        ),
+                  SizedBox(
+                    height: 120,
+                    width: 120,
+                    child: Card(
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                    ],
+                      elevation: 5,
+                      color: Colors.grey,
+                      margin: const EdgeInsets.all(10),
+                      child: const Image(image: AssetImage('assets/images/ratmon_icon.png')),
+                    ),
                   ),
                   const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
                   Text(
@@ -60,20 +54,22 @@ class _LoginViewState extends State<LoginView> {
                     style: const TextStyle(color: Colors.white, fontSize: 30),
                     textAlign: TextAlign.center,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 30, bottom: 15),
-                        child: Text(
-                          LocaleKeys.Email.tr(),
-                          style: const TextStyle(
-                            color: Color.fromRGBO(186, 186, 186, 1),
-                            fontSize: 13,
-                          ),
-                        ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 16.0),
+                    child: Divider(
+                      color: Color.fromRGBO(0, 192, 75, .3),
+                      thickness: 2,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 30, bottom: 15),
+                    child: Text(
+                      LocaleKeys.Email.tr(),
+                      style: const TextStyle(
+                        color: Color.fromRGBO(186, 186, 186, 1),
+                        fontSize: 13,
                       ),
-                    ],
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -126,7 +122,7 @@ class _LoginViewState extends State<LoginView> {
                               },
                             ),
                           },
-                          color: Colors.blue,
+                          color: const Color.fromRGBO(0, 192, 75, .7),
                           icon: const Icon(Icons.remove_red_eye_outlined),
                         ),
                       ),
@@ -136,7 +132,7 @@ class _LoginViewState extends State<LoginView> {
                     height: 50,
                     width: 250,
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: const Color.fromRGBO(0, 192, 75, .3),
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: MaterialButton(
@@ -157,7 +153,7 @@ class _LoginViewState extends State<LoginView> {
                     height: 50,
                     width: 250,
                     decoration: BoxDecoration(
-                      border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
+                      border: Border.all(width: 2, color: const Color.fromRGBO(0, 192, 75, .3)),
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(4),
                     ),

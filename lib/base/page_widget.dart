@@ -3,6 +3,7 @@ import 'package:electricity_x_2024/main_menu_view.dart';
 import 'package:electricity_x_2024/user_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../customWidgets/custom_appbar.dart';
 import '../generated/locale_keys.g.dart';
@@ -79,7 +80,12 @@ class PageWidget extends StatelessWidget {
           ),
           _getFixedChild(
             context,
-            icon: const Icon(Icons.brush),
+            icon: SvgPicture.asset(
+              'assets/images/ev_station.svg',
+              color: Colors.white,
+              width: 25,
+              height: 25,
+            ),
             backgroundColor: Colors.green,
             foregroundColor: Colors.white,
             label: LocaleKeys.giver.tr(),
@@ -87,7 +93,12 @@ class PageWidget extends StatelessWidget {
           ),
           _getFixedChild(
             context,
-            icon: const Icon(Icons.keyboard_voice),
+            icon: SvgPicture.asset(
+              'assets/images/battery_charging.svg',
+              color: Colors.white,
+              width: 25,
+              height: 25,
+            ),
             backgroundColor: Colors.green,
             foregroundColor: Colors.white,
             label: LocaleKeys.taker.tr(),
@@ -118,7 +129,8 @@ class PageWidget extends StatelessWidget {
       foregroundColor: foregroundColor,
       label: label,
       labelStyle: const TextStyle(fontSize: 18.0),
-      onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => targetView)),
+      onTap: () => Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (context) => targetView)),
     );
   }
 }

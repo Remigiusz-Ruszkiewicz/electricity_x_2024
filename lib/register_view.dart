@@ -13,9 +13,6 @@ class RegisterView extends StatefulWidget {
 
 class _RegisterViewState extends State<RegisterView> {
   bool _passwordVisible = false;
-  final loginTextEditingController = TextEditingController();
-  final passwordTextEditingController = TextEditingController();
-  final repeatedPasswordTextEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +71,6 @@ class _RegisterViewState extends State<RegisterView> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: TextField(
-                    controller: loginTextEditingController,
                     decoration: const InputDecoration(
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -103,7 +99,6 @@ class _RegisterViewState extends State<RegisterView> {
                   padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                   //padding: EdgeInsets.symmetric(horizontal: 15),
                   child: TextField(
-                    controller: passwordTextEditingController,
                     obscureText: !_passwordVisible,
                     enableSuggestions: false,
                     autocorrect: false,
@@ -145,9 +140,7 @@ class _RegisterViewState extends State<RegisterView> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
-                  //padding: EdgeInsets.symmetric(horizontal: 15),
                   child: TextField(
-                    controller: passwordTextEditingController,
                     obscureText: !_passwordVisible,
                     enableSuggestions: false,
                     autocorrect: false,

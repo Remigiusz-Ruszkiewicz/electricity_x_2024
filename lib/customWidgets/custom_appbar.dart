@@ -6,26 +6,29 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     Key? key,
     required this.title,
     required this.settingVisible,
+    this.gradientColors,
   }) : super(key: key);
   final String title;
   final bool settingVisible;
+  final List<Color>? gradientColors;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       flexibleSpace: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color.fromRGBO(0, 192, 75, .8),
-              Color.fromRGBO(0, 192, 75, .7),
-              Color.fromRGBO(0, 180, 75, .5),
-              Color.fromRGBO(0, 145, 75, .3),
-              Color.fromRGBO(0, 120, 75, .2),
-            ],
-            begin: FractionalOffset(0.0, 0.0),
-            end: FractionalOffset(0.0, 1.0),
-            stops: [0.0, .20, .50, .80, 1],
+            colors: gradientColors ??
+                [
+                  const Color.fromRGBO(0, 192, 75, .8),
+                  const Color.fromRGBO(0, 192, 75, .7),
+                  const Color.fromRGBO(0, 180, 75, .5),
+                  const Color.fromRGBO(0, 145, 75, .3),
+                  const Color.fromRGBO(0, 120, 75, .2),
+                ],
+            begin: const FractionalOffset(0.0, 0.0),
+            end: const FractionalOffset(0.0, 1.0),
+            stops: const [0.0, .20, .50, .80, 1],
             tileMode: TileMode.clamp,
           ),
         ),
@@ -37,7 +40,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       titleSpacing: 0,
       leadingWidth: 70,
-      leading: Image(
+      leading: const Image(
         image: AssetImage('assets/images/logo.png'),
       ),
       actions: settingVisible

@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'base/page_widget.dart';
@@ -12,7 +11,7 @@ class GiverPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageWidget(
-      title: LocaleKeys.giver.tr(),
+      title: LocaleKeys.giver,
       enableSideTopPadding: false,
       topWidget: Align(
         alignment: Alignment.topCenter,
@@ -22,6 +21,7 @@ class GiverPanel extends StatelessWidget {
             Image(image: AssetImage('assets/images/energy_outcome.png')),
           ],
           options: CarouselOptions(
+            autoPlay: true,
             height: 250.0,
             aspectRatio: 16 / 9,
             viewportFraction: 0.80,

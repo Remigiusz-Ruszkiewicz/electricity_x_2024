@@ -7,6 +7,7 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../customWidgets/custom_appbar.dart';
+import '../customWidgets/divider_with_child.dart';
 import '../generated/locale_keys.g.dart';
 import '../giver_panel.dart';
 import '../taker_panel.dart';
@@ -33,16 +34,17 @@ class PageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: title,
+        title: title.tr(),
         settingVisible: settingVisible,
       ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              alignment: Alignment.topCenter,
-              image: AssetImage("assets/images/logo.png"),
-              fit: BoxFit.cover,
-              opacity: 0.1),
+            alignment: Alignment.topCenter,
+            image: AssetImage("assets/images/logo.png"),
+            fit: BoxFit.cover,
+            opacity: 0.1,
+          ),
         ),
         child: NotificationListener<OverscrollIndicatorNotification>(
           onNotification: (OverscrollIndicatorNotification overscroll) {
@@ -61,20 +63,8 @@ class PageWidget extends StatelessWidget {
                       padding: enableSideTopPadding ? const EdgeInsets.symmetric(horizontal: 16) : EdgeInsets.zero,
                       child: topWidget,
                     ),
-                    if (midWidget != null)
-                      const Divider(thickness: 1),
-                    if (midWidget != null)
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
-                        child: midWidget,
-                      ),
-                    if (bottomWidget != null)
-                      const Divider(thickness: 1),
-                    if (bottomWidget != null)
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: bottomWidget!,
-                      ),
+                    if (midWidget != null) DividerWithChild(midWidget!),
+                    if (bottomWidget != null) DividerWithChild(bottomWidget!),
                   ],
                 ),
               ),
@@ -85,9 +75,9 @@ class PageWidget extends StatelessWidget {
       floatingActionButton: SpeedDial(
         icon: Icons.menu,
         activeIcon: Icons.close,
-        backgroundColor: Colors.green,
+        backgroundColor: _getSpeedDialColor(),
         foregroundColor: Colors.white,
-        activeBackgroundColor: Colors.green,
+        activeBackgroundColor: _getSpeedDialColor(),
         activeForegroundColor: Colors.white,
         visible: true,
         closeManually: false,
@@ -107,9 +97,8 @@ class PageWidget extends StatelessWidget {
               width: 25,
               height: 25,
             ),
-            backgroundColor: Colors.green,
             foregroundColor: Colors.white,
-            label: LocaleKeys.intermediates.tr(),
+            label: LocaleKeys.intermediates,
             targetView: const IntermediatesPanel(),
           ),
           _getFixedChild(
@@ -120,9 +109,8 @@ class PageWidget extends StatelessWidget {
               width: 25,
               height: 25,
             ),
-            backgroundColor: Colors.green,
             foregroundColor: Colors.white,
-            label: LocaleKeys.giver.tr(),
+            label: LocaleKeys.giver,
             targetView: const GiverPanel(),
           ),
           _getFixedChild(
@@ -133,9 +121,8 @@ class PageWidget extends StatelessWidget {
               width: 25,
               height: 25,
             ),
-            backgroundColor: Colors.green,
             foregroundColor: Colors.white,
-            label: LocaleKeys.taker.tr(),
+            label: LocaleKeys.taker,
             targetView: const TakerPanel(),
           ),
           _getFixedChild(
@@ -146,9 +133,8 @@ class PageWidget extends StatelessWidget {
               width: 25,
               height: 25,
             ),
-            backgroundColor: Colors.green,
             foregroundColor: Colors.white,
-            label: LocaleKeys.mapPanel.tr(),
+            label: LocaleKeys.mapPanel,
             targetView: const MapPanel(),
           ),
         ],
@@ -159,24 +145,57 @@ class PageWidget extends StatelessWidget {
   SpeedDialChild _getFixedChild(
     BuildContext context, {
     required Widget icon,
-    required final Color? backgroundColor,
     required final Color? foregroundColor,
     required String label,
     required Widget targetView,
   }) {
     if (title == label) {
       targetView = const MainMenuView();
-      label = LocaleKeys.mainMenu.tr();
+      label = LocaleKeys.mainMenu;
       icon = const Icon(Icons.home);
+    }
+
+    Color backgroundColor;
+    switch (targetView.runtimeType) {
+      case TakerPanel:
+        backgroundColor = Colors.deepOrange;
+        break;
+      case GiverPanel:
+        backgroundColor = Colors.blue;
+        break;
+      case MapPanel:
+        backgroundColor = Colors.amber;
+        break;
+      case IntermediatesPanel:
+        backgroundColor = Colors.red;
+        break;
+      default:
+        backgroundColor = Colors.green;
+        break;
     }
 
     return SpeedDialChild(
       child: icon,
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
-      label: label,
+      label: label.tr(),
       labelStyle: const TextStyle(fontSize: 18.0),
       onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => targetView)),
     );
+  }
+
+  MaterialColor _getSpeedDialColor() {
+    switch (title) {
+      case LocaleKeys.taker:
+        return Colors.deepOrange;
+      case LocaleKeys.giver:
+        return Colors.blue;
+      case LocaleKeys.mapPanel:
+        return Colors.amber;
+      case LocaleKeys.intermediates:
+        return Colors.red;
+      default:
+        return Colors.green;
+    }
   }
 }

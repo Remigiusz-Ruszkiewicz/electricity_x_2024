@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:electricity_x_2024/customWidgets/card_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +9,9 @@ class IntermediatesPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PageWidget(
-      title: LocaleKeys.intermediates.tr(),
-      topWidget: const ProductCard(),
+    return const PageWidget(
+      title: LocaleKeys.intermediates,
+      topWidget: ProductCard(),
     );
   }
 }

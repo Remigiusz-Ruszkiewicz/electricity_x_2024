@@ -41,13 +41,15 @@ class _LoginViewState extends State<LoginView> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(height: 50,),
-                  Text(
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  const Text(
                     'TU BĘDZIE NAZWA',
-                    style: const TextStyle(color: Colors.white, fontSize: 30),
+                    style: TextStyle(color: Colors.white, fontSize: 30),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 250,),
+                  const Spacer(),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
@@ -61,48 +63,54 @@ class _LoginViewState extends State<LoginView> {
                             ),
                           ),
                           hintText: 'E-Mail',
-                          prefixIcon: Icon(Icons.person),
+                          prefixIcon: const Icon(Icons.person),
                           constraints: const BoxConstraints(maxWidth: 400)),
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.only(
-                        left: 15.0, right: 15.0, top: 15, bottom: 15),
-                    child: Container(
-                      child: TextFormField(
-                        obscureText: !_passwordVisible,
-                        enableSuggestions: false,
-                        autocorrect: false,
-                        obscuringCharacter: "*",
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.black12.withOpacity(0.1),
-                          enabledBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 1,
-                              color: Colors.green,
-                            ),
-                          ),
-                          hintText: 'Hasło',
-                          prefixIcon: Icon(Icons.lock),
-                          constraints: const BoxConstraints(maxWidth: 400),
-                          suffixIcon: IconButton(
-                            onPressed: () => {
-                              setState(
-                                () {
-                                  _passwordVisible = !_passwordVisible;
-                                },
-                              ),
-                            },
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
+                    child: TextFormField(
+                      obscureText: !_passwordVisible,
+                      enableSuggestions: false,
+                      autocorrect: false,
+                      obscuringCharacter: "*",
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.black12.withOpacity(0.1),
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 1,
                             color: Colors.green,
-                            icon: const Icon(Icons.remove_red_eye_outlined),
                           ),
+                        ),
+                        hintText: 'Hasło',
+                        prefixIcon: const Icon(Icons.lock),
+                        constraints: const BoxConstraints(maxWidth: 400),
+                        suffixIcon: IconButton(
+                          onPressed: () => {
+                            setState(
+                              () {
+                                _passwordVisible = !_passwordVisible;
+                              },
+                            ),
+                          },
+                          color: Colors.green,
+                          icon: const Icon(Icons.remove_red_eye_outlined),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 100,),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  const Divider(
+                    thickness: 2,
+                    color: Colors.green,
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   Container(
                     height: 50,
                     width: 250,
@@ -119,8 +127,7 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       child: Text(
                         LocaleKeys.Login.tr(),
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 16),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
                   ),
@@ -129,23 +136,17 @@ class _LoginViewState extends State<LoginView> {
                     height: 50,
                     width: 250,
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 2,
-                          color: const Color.fromRGBO(117, 117, 117, 1)),
+                      border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: MaterialButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const RegisterView()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const RegisterView()));
                       },
                       child: Text(
                         LocaleKeys.Register.tr(),
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 16),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
                   ),

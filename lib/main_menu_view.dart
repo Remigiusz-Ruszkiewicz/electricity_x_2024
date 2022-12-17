@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:electricity_x_2024/base/page_widget.dart';
+import 'package:electricity_x_2024/customWidgets/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:spring/spring.dart';
 
-import 'package:electricity_x_2024/customWidgets/custom_card.dart';
 import 'generated/locale_keys.g.dart';
 
 class MainMenuView extends StatelessWidget {
@@ -53,15 +53,10 @@ class MainMenuView extends StatelessWidget {
   }
 
   List<Widget> getMidWidgets() => [
-        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł! Oszczedziles dzisiaj 2137 zł!'),
-        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
-        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
-        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
-        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
-        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
-        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
-        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!'),
-        const _MiddleWidget('Oszczedziles dzisiaj 2137 zł!')
+        const _MiddleWidget('Dziękujemy, że jesteś z nami już 369 dni'),
+        const _MiddleWidget('Razem oszczędziliśmy 20950zł'),
+        const _MiddleWidget('W tym miesiącu udało ci się wyprodukować 1500kWh energii z odnawialnych źródeł'),
+        const _MiddleWidget('Dziękujemy że razem z nami przyczyniasz sie do ratowania planety!'),
       ];
 }
 

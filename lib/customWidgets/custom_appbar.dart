@@ -37,13 +37,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       titleSpacing: 0,
       leadingWidth: 70,
-      leading: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: SizedBox(
-          height: 48,
-          width: 48,
-          child: Image(image: AssetImage('assets/images/logo.png')),
-        ),
+      leading: Image(
+        image: AssetImage('assets/images/logo.png'),
       ),
       actions: settingVisible
           ? [

@@ -41,7 +41,9 @@ class _LoginViewState extends State<LoginView> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const SizedBox(height: 50,),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   const Text(
                     'TU BĘDZIE NAZWA',
                     style: TextStyle(color: Colors.white, fontSize: 30),
@@ -101,12 +103,16 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 50,),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   const Divider(
                     thickness: 2,
                     color: Colors.green,
                   ),
-                  const SizedBox(height: 50,),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   Container(
                     height: 50,
                     width: 250,

@@ -64,7 +64,6 @@ class PageWidget extends StatelessWidget {
                     ),
                     if (midWidget != null) DividerWithChild(midWidget!),
                     if (bottomWidget != null) DividerWithChild(bottomWidget!),
-
                   ],
                 ),
               ),
@@ -159,7 +158,7 @@ class PageWidget extends StatelessWidget {
       label = LocaleKeys.mainMenu.tr();
       icon = const Icon(Icons.home);
     }
-    switch(targetView.runtimeType){
+    switch (targetView.runtimeType) {
       case TakerPanel:
         backgroundColor = Colors.orangeAccent;
         break;

@@ -15,7 +15,6 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   bool _passwordVisible = false;
-  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +33,16 @@ class _LoginViewState extends State<LoginView> {
           onTap: () {
             FocusScope.of(context).requestFocus(FocusNode());
           },
-          child: Form(
-            key: _formKey,
+          child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(35.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
+                  const SizedBox(
+                    height: 50,
+                  ),
                   const Padding(
                     padding: EdgeInsets.only(top: 8.0),
                     child: Text(
@@ -50,7 +51,9 @@ class _LoginViewState extends State<LoginView> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  const Spacer(),
+                  const SizedBox(
+                    height: 250,
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
@@ -115,12 +118,18 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 8.0),
                     child: Divider(
                       thickness: 2,
                       color: Color.fromRGBO(0, 192, 75, .9),
                     ),
+                  ),
+                  const SizedBox(
+                    height: 50,
                   ),
                   Container(
                     height: 50,

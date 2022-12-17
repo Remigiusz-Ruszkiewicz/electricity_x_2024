@@ -75,11 +75,8 @@ class _RegisterViewState extends State<RegisterView> {
                           constraints: const BoxConstraints(maxWidth: 400)),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                     child: TextFormField(
                       cursorColor: const Color.fromRGBO(0, 192, 75, .2),
                       obscureText: !_passwordVisible,
@@ -119,7 +116,7 @@ class _RegisterViewState extends State<RegisterView> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 15),
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
                     child: TextFormField(
                       cursorColor: const Color.fromRGBO(0, 192, 75, .2),
                       obscureText: !_passwordVisible,
@@ -152,8 +149,19 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                     ),
                   ),
-                  const Padding(padding: EdgeInsets.fromLTRB(0, 50, 0, 10)),
-                  const SizedBox(height: 50),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                    child: Divider(
+                      thickness: 2,
+                      color: Color.fromRGBO(0, 192, 75, .9),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   Container(
                     height: 50,
                     width: 250,

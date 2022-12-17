@@ -77,7 +77,7 @@ class PageWidget extends StatelessWidget {
             backgroundColor: Colors.green,
             foregroundColor: Colors.white,
             label: LocaleKeys.intermediates.tr(),
-            targetView: const UserPanel(),
+            targetView: const IntermediatesPanel(),
           ),
           _getFixedChild(
             context,

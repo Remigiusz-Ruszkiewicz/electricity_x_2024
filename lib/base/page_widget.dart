@@ -36,38 +36,47 @@ class PageWidget extends StatelessWidget {
         title: title,
         settingVisible: settingVisible,
       ),
-      body: NotificationListener<OverscrollIndicatorNotification>(
-        onNotification: (OverscrollIndicatorNotification overscroll) {
-          overscroll.disallowIndicator();
-          return false;
-        },
-        child: SingleChildScrollView(
-          clipBehavior: Clip.antiAlias,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: enableSideTopPadding ? const EdgeInsets.symmetric(horizontal: 16) : EdgeInsets.zero,
-                    child: topWidget,
-                  ),
-                  if (midWidget != null)
-                    const Divider(thickness: 1),
-                  if (midWidget != null)
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              alignment: Alignment.topCenter,
+              image: AssetImage("assets/images/logo.png"),
+              fit: BoxFit.cover,
+              opacity: 0.1),
+        ),
+        child: NotificationListener<OverscrollIndicatorNotification>(
+          onNotification: (OverscrollIndicatorNotification overscroll) {
+            overscroll.disallowIndicator();
+            return false;
+          },
+          child: SingleChildScrollView(
+            clipBehavior: Clip.antiAlias,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
-                      child: midWidget,
+                      padding: enableSideTopPadding ? const EdgeInsets.symmetric(horizontal: 16) : EdgeInsets.zero,
+                      child: topWidget,
                     ),
-                  if (bottomWidget != null)
-                    const Divider(thickness: 1),
-                  if (bottomWidget != null)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: bottomWidget!,
-                    ),
-                ],
+                    if (midWidget != null)
+                      const Divider(thickness: 1),
+                    if (midWidget != null)
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
+                        child: midWidget,
+                      ),
+                    if (bottomWidget != null)
+                      const Divider(thickness: 1),
+                    if (bottomWidget != null)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: bottomWidget!,
+                      ),
+                  ],
+                ),
               ),
             ),
           ),

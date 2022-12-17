@@ -52,18 +52,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: settingVisible
           ? [
-              IconButton(
-                alignment: Alignment.center,
-                onPressed: () => {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const LoginView(),
-                    ),
-                  )
-                },
-                color: Colors.white,
-                icon: const Icon(Icons.logout),
+              Padding(
+                padding: const EdgeInsets.only(right: 5),
+                child: IconButton(
+                  alignment: Alignment.center,
+                  onPressed: () => {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const LoginView(),
+                      ),
+                    )
+                  },
+                  color: Colors.white,
+                  icon: const Icon(Icons.logout),
+                ),
               ),
             ]
           : null,

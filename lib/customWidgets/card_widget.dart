@@ -63,9 +63,7 @@ class _ProductCardState extends State<ProductCard> {
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(32.0))),
+                          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(32.0))),
                           contentPadding: const EdgeInsets.only(top: 10.0),
                           content: SizedBox(
                             width: 300.0,
@@ -75,8 +73,7 @@ class _ProductCardState extends State<ProductCard> {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     Text(
@@ -97,29 +94,25 @@ class _ProductCardState extends State<ProductCard> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          10, 10, 10, 10),
+                                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                                       child: Row(
                                         children: [
                                           const Icon(Icons.phone),
                                           Text(
                                             ' : ' + movie['number'],
-                                            style:
-                                                const TextStyle(fontSize: 18.0),
+                                            style: const TextStyle(fontSize: 18.0),
                                           ),
                                         ],
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          10, 0, 10, 10),
+                                      padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
                                       child: Row(
                                         children: [
                                           const Icon(Icons.web_sharp),
                                           Text(
                                             ' : ' + movie['website'],
-                                            style:
-                                                const TextStyle(fontSize: 18.0),
+                                            style: const TextStyle(fontSize: 18.0),
                                           ),
                                         ],
                                       ),
@@ -157,8 +150,7 @@ class _ProductCardState extends State<ProductCard> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            child:
-                                Image.asset(movie['image'], fit: BoxFit.cover),
+                            child: Image.asset(movie['image'], fit: BoxFit.cover),
                           ),
                           Padding(
                             padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
@@ -173,8 +165,7 @@ class _ProductCardState extends State<ProductCard> {
                                   children: [
                                     Text(
                                       movie['title'],
-                                      style: const TextStyle(
-                                          fontSize: 25, color: Colors.black),
+                                      style: const TextStyle(fontSize: 25, color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -187,9 +178,7 @@ class _ProductCardState extends State<ProductCard> {
                                     ),
                                     Text(
                                       ' : ' + movie['number'],
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          color: Colors.grey.shade600),
+                                      style: TextStyle(fontSize: 20, color: Colors.grey.shade600),
                                     ),
                                   ],
                                 ),

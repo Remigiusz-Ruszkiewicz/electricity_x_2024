@@ -32,9 +32,10 @@ class MapPanel extends StatelessWidget {
                         target: LatLng(50.068179687218525, 19.94116559466378),
                         zoom: 17,
                       ),
-                      markers: {const Marker(
-                          markerId: MarkerId('TEST'),
-                          position: LatLng(50.068279687218525, 19.94116559466378))},
+                      markers: {
+                        const Marker(
+                            markerId: MarkerId('TEST'), position: LatLng(50.068279687218525, 19.94116559466378))
+                      },
                     ),
                   ),
                 ),

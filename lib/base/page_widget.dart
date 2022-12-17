@@ -18,6 +18,7 @@ class PageWidget extends StatelessWidget {
     this.midWidget,
     this.bottomWidget,
     this.settingVisible = false,
+    this.enableSideTopPadding = true,
     Key? key,
   }) : super(key: key);
 
@@ -26,6 +27,7 @@ class PageWidget extends StatelessWidget {
   final Widget? midWidget;
   final Widget? bottomWidget;
   final bool settingVisible;
+  final bool enableSideTopPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -42,21 +44,25 @@ class PageWidget extends StatelessWidget {
         child: SingleChildScrollView(
           clipBehavior: Clip.antiAlias,
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.symmetric(vertical: 16),
             child: Center(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 16),
+                    padding: enableSideTopPadding ? const EdgeInsets.symmetric(horizontal: 16) : EdgeInsets.zero,
                     child: topWidget,
                   ),
                   if (midWidget != null)
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
+                      padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
                       child: midWidget,
                     ),
-                  if (bottomWidget != null) bottomWidget!,
+                  if (bottomWidget != null)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: bottomWidget!,
+                    ),
                 ],
               ),
             ),

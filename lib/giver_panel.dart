@@ -13,6 +13,7 @@ class GiverPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageWidget(
       title: LocaleKeys.giver.tr(),
+      enableSideTopPadding: false,
       topWidget: Align(
         alignment: Alignment.topCenter,
         child: CarouselSlider(
@@ -21,20 +22,15 @@ class GiverPanel extends StatelessWidget {
             Image(image: AssetImage('assets/images/energy_outcome.png')),
           ],
           options: CarouselOptions(
-              height: 450.0,
+              height: 250.0,
               aspectRatio: 16 / 9,
-              viewportFraction: 0.70,
+              viewportFraction: 0.80,
               enlargeCenterPage: true,
               pageSnapping: true,
               enableInfiniteScroll: false,
               onPageChanged: (index, reason) {}),
         ),
       ),
-      // Container(
-      //   color: Colors.amber,
-      //   width: 300,
-      //   height: 200,
-      // ),
       midWidget: getCard('W tym tygodniu wyprodukowałeś 23232kWh eko energii!'),
       bottomWidget: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

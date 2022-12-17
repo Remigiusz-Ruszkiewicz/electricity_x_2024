@@ -36,7 +36,7 @@ class PageWidget extends StatelessWidget {
       appBar: CustomAppBar(
         title: title.tr(),
         settingVisible: settingVisible,
-        gradientColors: getGradientColors(),
+        gradientColors: getGradientColors(title),
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -143,15 +143,33 @@ class PageWidget extends StatelessWidget {
     );
   }
 
-  List<Color> getGradientColors() {
-    switch (targetView.runtimeType) {
-      case TakerPanel:
-        backgroundColor = Colors.deepOrange;
-      case GiverPanel:
-        backgroundColor = Colors.blue;
-      case MapPanel:
-        backgroundColor = Colors.amber;
-      case IntermediatesPanel:
+  List<Color> getGradientColors(String title) {
+    switch (title) {
+      case LocaleKeys.taker:
+        return [
+          const Color.fromRGBO(255, 87, 34, .8),
+          const Color.fromRGBO(255, 87, 34, .7),
+          const Color.fromRGBO(255, 87, 34, .5),
+          const Color.fromRGBO(255, 87, 34, .3),
+          const Color.fromRGBO(255, 87, 34, .2),
+        ];
+      case LocaleKeys.giver:
+        return [
+          const Color.fromRGBO(33, 150, 243, .8),
+          const Color.fromRGBO(33, 150, 243, .7),
+          const Color.fromRGBO(33, 150, 243, .5),
+          const Color.fromRGBO(33, 150, 243, .3),
+          const Color.fromRGBO(33, 150, 243, .2),
+        ];
+      case LocaleKeys.mapPanel:
+        return [
+          const Color.fromRGBO(255, 193, 7, .8),
+          const Color.fromRGBO(255, 193, 7, .7),
+          const Color.fromRGBO(255, 193, 7, .5),
+          const Color.fromRGBO(255, 193, 7, .3),
+          const Color.fromRGBO(255, 193, 7, .2),
+        ];
+      case LocaleKeys.intermediates:
         return [
           const Color.fromRGBO(244, 67, 54, .8),
           const Color.fromRGBO(244, 67, 54, .7),

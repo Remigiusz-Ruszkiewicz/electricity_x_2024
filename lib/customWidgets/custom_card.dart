@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
-    this.color = const Color.fromRGBO(0, 192, 75, .2),
+    this.color,
     required this.content,
     Key? key,
   }) : super(key: key);
 
-  final Color color;
+  final Color? color;
   final Widget content;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: color,
+      color: color ?? const Color.fromRGBO(0, 192, 75, .2),
       elevation: 0,
       shape: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
@@ -24,8 +24,9 @@ class CustomCard extends StatelessWidget {
   }
 }
 
-Widget getCard(String text) {
+Widget getCard(String text, {Color? color}) {
   return CustomCard(
+    color: color,
     content: SizedBox(
       height: 100,
       child: Padding(

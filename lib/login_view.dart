@@ -15,6 +15,9 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   bool _passwordVisible = false;
+  TextEditingController loginController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,7 @@ class _LoginViewState extends State<LoginView> {
                   const Padding(
                     padding: EdgeInsets.only(top: 8.0),
                     child: Text(
-                      'TU BĘDZIE NAZWA',
+                      'EnergyWise',
                       style: TextStyle(color: Colors.white, fontSize: 30),
                       textAlign: TextAlign.center,
                     ),
@@ -57,6 +60,14 @@ class _LoginViewState extends State<LoginView> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
+                      controller: loginController,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter E-Mail';
+                        }
+                        return null;
+                      },
                       cursorColor: const Color.fromRGBO(0, 192, 75, .2),
                       decoration: InputDecoration(
                           focusedBorder: const OutlineInputBorder(
@@ -74,7 +85,8 @@ class _LoginViewState extends State<LoginView> {
                             ),
                           ),
                           hintText: 'E-Mail',
-                          prefixIcon: const Icon(Icons.person, color: Color.fromRGBO(0, 192, 75, .6)),
+                          prefixIcon: const Icon(Icons.person,
+                              color: Color.fromRGBO(0, 192, 75, .6)),
                           constraints: const BoxConstraints(maxWidth: 400)),
                     ),
                   ),
@@ -83,6 +95,7 @@ class _LoginViewState extends State<LoginView> {
                     child: TextFormField(
                       cursorColor: const Color.fromRGBO(0, 192, 75, .2),
                       obscureText: !_passwordVisible,
+                      controller: passwordController,
                       enableSuggestions: false,
                       autocorrect: false,
                       obscuringCharacter: "*",
@@ -102,7 +115,8 @@ class _LoginViewState extends State<LoginView> {
                           ),
                         ),
                         hintText: 'Hasło',
-                        prefixIcon: const Icon(Icons.lock, color: Color.fromRGBO(0, 192, 75, .6)),
+                        prefixIcon: const Icon(Icons.lock,
+                            color: Color.fromRGBO(0, 192, 75, .6)),
                         constraints: const BoxConstraints(maxWidth: 400),
                         suffixIcon: IconButton(
                           onPressed: () => {
@@ -139,15 +153,23 @@ class _LoginViewState extends State<LoginView> {
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: MaterialButton(
-                      onPressed: () => Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const MainMenuView(),
-                        ),
-                      ),
+                      onPressed: () => {
+                        if (_formKey.currentState!.validate() &&
+                            loginController.text.toLowerCase() == 'jarosz' &&
+                            passwordController.text.trim() == '')
+                          {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const MainMenuView(),
+                              ),
+                            ),
+                          }
+                      },
                       child: Text(
                         LocaleKeys.Login.tr(),
-                        style: const TextStyle(color: Colors.white, fontSize: 16),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
                   ),
@@ -157,17 +179,23 @@ class _LoginViewState extends State<LoginView> {
                       height: 50,
                       width: 250,
                       decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: const Color.fromRGBO(117, 117, 117, 1)),
+                        border: Border.all(
+                            width: 2,
+                            color: const Color.fromRGBO(117, 117, 117, 1)),
                         color: Colors.transparent,
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: MaterialButton(
                         onPressed: () {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const RegisterView()));
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const RegisterView()));
                         },
                         child: Text(
                           LocaleKeys.Register.tr(),
-                          style: const TextStyle(color: Colors.white, fontSize: 16),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 16),
                         ),
                       ),
                     ),

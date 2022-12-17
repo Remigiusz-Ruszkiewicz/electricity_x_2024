@@ -37,26 +37,36 @@ class PageWidget extends StatelessWidget {
         title: title,
         settingVisible: settingVisible,
       ),
-      body: NotificationListener<OverscrollIndicatorNotification>(
-        onNotification: (OverscrollIndicatorNotification overscroll) {
-          overscroll.disallowIndicator();
-          return false;
-        },
-        child: SingleChildScrollView(
-          clipBehavior: Clip.antiAlias,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: enableSideTopPadding ? const EdgeInsets.symmetric(horizontal: 16) : EdgeInsets.zero,
-                    child: topWidget,
-                  ),
-                  if (midWidget != null) DividerWithChild(midWidget!),
-                  if (bottomWidget != null) DividerWithChild(bottomWidget!),
-                ],
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              alignment: Alignment.topCenter,
+              image: AssetImage("assets/images/logo.png"),
+              fit: BoxFit.cover,
+              opacity: 0.1),
+        ),
+        child: NotificationListener<OverscrollIndicatorNotification>(
+          onNotification: (OverscrollIndicatorNotification overscroll) {
+            overscroll.disallowIndicator();
+            return false;
+          },
+          child: SingleChildScrollView(
+            clipBehavior: Clip.antiAlias,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: enableSideTopPadding ? const EdgeInsets.symmetric(horizontal: 16) : EdgeInsets.zero,
+                      child: topWidget,
+                    ),
+                    if (midWidget != null) DividerWithChild(midWidget!),
+                    if (bottomWidget != null) DividerWithChild(bottomWidget!),
+
+                  ],
+                ),
               ),
             ),
           ),
@@ -139,7 +149,7 @@ class PageWidget extends StatelessWidget {
   SpeedDialChild _getFixedChild(
     BuildContext context, {
     required Widget icon,
-    required final Color? backgroundColor,
+    required Color? backgroundColor,
     required final Color? foregroundColor,
     required String label,
     required Widget targetView,
@@ -149,7 +159,11 @@ class PageWidget extends StatelessWidget {
       label = LocaleKeys.mainMenu.tr();
       icon = const Icon(Icons.home);
     }
-
+    switch(targetView.runtimeType){
+      case TakerPanel:
+        backgroundColor = Colors.orangeAccent;
+        break;
+    }
     return SpeedDialChild(
       child: icon,
       backgroundColor: backgroundColor,

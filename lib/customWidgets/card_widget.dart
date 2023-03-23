@@ -2,18 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatefulWidget {
-  const ProductCard({Key? key}) : super(key: key);
-
-  @override
-  _ProductCardState createState() => _ProductCardState();
-}
-
-class _ProductCardState extends State<ProductCard> {
-  dynamic _selectedIndex = {};
-
-  final CarouselController _carouselController = CarouselController();
-
-  final List<dynamic> _products = [
+  ProductCard({Key? key}) : super(key: key);
+  final List<dynamic> products = [
     {
       'image': 'assets/images/foto_1.png',
       'title': 'Colombo Energy',
@@ -41,6 +31,15 @@ class _ProductCardState extends State<ProductCard> {
   ];
 
   @override
+  _ProductCardState createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  dynamic _selectedIndex = {};
+
+  final CarouselController _carouselController = CarouselController();
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
@@ -54,7 +53,7 @@ class _ProductCardState extends State<ProductCard> {
               enlargeCenterPage: true,
               pageSnapping: true,
               onPageChanged: (index, reason) {}),
-          items: _products.map((movie) {
+          items: widget.products.map((movie) {
             return Builder(
               builder: (BuildContext context) {
                 return GestureDetector(

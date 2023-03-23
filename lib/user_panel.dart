@@ -9,7 +9,7 @@ class IntermediatesPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const PageWidget(
+    return PageWidget(
       title: LocaleKeys.intermediates,
       topWidget: ProductCard(),
     );
